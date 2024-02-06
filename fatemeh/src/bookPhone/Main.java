@@ -100,6 +100,9 @@ public class Main {
                         men1.setFamily(sc.next());
                         men1.setCount(count);
                         System.out.println("count: "+men1.getCount());
+                        int user3 = sc.nextInt();
+                        ;
+                        men1.setAdress(getAddress(user3));
                         count++;
                         person.add(men1);
                     } else if (karbar.equals("women")) {
@@ -109,12 +112,14 @@ public class Main {
                         women1.setFamily(sc.next());
                         women1.setCount(count);
                         System.out.println("count: "+women1.getCount());
+                        int user3 = sc.nextInt();
+                        men1.setAdress(getAddress(user3));
                         count++;
                         person.add(women1);
                     }else {
                         System.out.println("invalid");
                     }
-
+//                    men1.setAdress();
                     break;
                 case 2:
                     showPerson();
@@ -164,12 +169,15 @@ public class Main {
     }
 
 
-//    public Adress getAddress(int count){
-//        for (Adress adress:adresses) {
-////            adress.
-//        }
-//    }
-//
+    public static Adress getAddress(int id){
+        for (Adress adress:adresses) {
+            if(adress.getId()==id){
+                return adress;
+            }
+        }
+        return null;
+    }
+
 
 //    public static void searchGender(String user3){
 //        for(Gender en:Gender.values()) {

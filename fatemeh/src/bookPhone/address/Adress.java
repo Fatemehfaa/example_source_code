@@ -29,10 +29,6 @@ public class Adress {
         return name;
     }
 
-    public void setName() {
-        this.name = name;
-    }
-
     public int getPostCode() {
         return postCode;
     }
