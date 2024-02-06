@@ -104,7 +104,7 @@ public class Main {
                 System.out.println("bookPhone.customer family:" + customer.getFamily());
                 System.out.println("bookPhone.customer nationalCode:" + customer.getNationalCode());
                 System.out.println("bookPhone.customer number:" + customer.getNumber());
-
+                System.out.println("");
             }
 
 
