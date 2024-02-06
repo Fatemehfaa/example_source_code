@@ -1,169 +1,207 @@
 package bookPhone;
 
-import bookPhone.book.Book;
-import bookPhone.customer.Customer;
-import bookPhone.employee.Employee;
+import bookPhone.address.Adress;
+import bookPhone.person.Person;
+import bookPhone.person.men;
+import bookPhone.person.women;
+import bookPhone.telephone.telephon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-/*
-        buyBook();
-        borrowBook();
-        showMember();
-*/
+        add();
+    }
+
+    private static void showAddress() {
+        for (Adress item : adresses) {
+            System.out.println(item);
+
+        }
+    }
+    private static void showTelephone(){
+        for (telephon i:telephons){
+            System.out.println(i);
+
+        }
+    }
+    public static void showPerson(){
+        for(Person item:person){
+            System.out.println(item);
+        }
+    }
+
+    public static void showAll() {
+        for (Person item : person) {
+            System.out.println(item);
+        }
+
+        for (telephon i : telephons) {
+            System.out.println(i);
+
+        }
+        for (Adress item : adresses) {
+            System.out.println(item);
+
+        }
+    }
+    static Scanner sc = new Scanner(System.in);
+    public static void searchByCount(int count){
+        for(Person i: person){
+            if(i.getCount()==count){
+                System.out.println(i);
+            }
+
+        }
+    }
 
 
-        ArrayList<Book> b = new ArrayList<>();
-        ArrayList<Employee> e = new ArrayList<>();
-        ArrayList<Customer> c = new ArrayList<>();
-        int id = 1;
-        int idBook = id, idEmployee = id, idCustomer = id;
+
+    public void search(int code){
+
+    }
+
+    static ArrayList<Adress> adresses = new ArrayList<>();
+    static ArrayList<telephon> telephons = new ArrayList<>();
+    static ArrayList<Person> person = new ArrayList<>();
+    static int count = 1;
+
+    private static void add() {
         Scanner sc = new Scanner(System.in);
+        boolean t = true;
+        while (t) {
+            Adress addres = new Adress();
+            telephon tele = new telephon();
+            men men1 = new men();
+            women women1 = new women();
 
-        System.out.println("Select a number.\n1==>bookPhone.book\n2==>bookPhone.employee\n3==>bookPhone.customer");
-        String input = sc.next();
+            System.out.println("----telephone------");
+            System.out.println("(1) add person");
+            System.out.println("(2) show person");
+            System.out.println("(3) add address");
+            System.out.println("(4) show address");
+            System.out.println("(5) add telephone");
+            System.out.println("(6) show telephone");
+            System.out.println("(7) show all");
+            System.out.println("(8) search");
+            System.out.println("(9) search by Gender");
+            System.out.println("(10) exist");
 
+            int user = sc.nextInt();
+            switch (user) {
+                case 1:
+                    System.out.println("enter your gender");
+                    String karbar= sc.next();
+                    if(karbar.equals("men")){
+                        System.out.println("enter your name:");
+                        men1.setName(sc.next());
+                        System.out.println("enter your family");
+                        men1.setFamily(sc.next());
+                        men1.setCount(count);
+                        System.out.println("count: "+men1.getCount());
+                        count++;
+                        person.add(men1);
+                    } else if (karbar.equals("women")) {
+                        System.out.println("enter your name:");
+                        women1.setName(sc.next());
+                        System.out.println("enter your family");
+                        women1.setFamily(sc.next());
+                        women1.setCount(count);
+                        System.out.println("count: "+women1.getCount());
+                        count++;
+                        person.add(women1);
+                    }else {
+                        System.out.println("invalid");
+                    }
 
-/*        for(Book item : b){
-            if(input.equals("bookPhone.book")){
-                System.out.println(b);
-            }else {
-                break;
-            }
-        }
-        for(bookPhone.employee.Employee item:e){
-            if (input.equals("bookPhone.employee")){
-                System.out.println(e);
-            }
-        }
-        for(bookPhone.customer.Customer item :c){
-            System.out.println(c);
-
-        }*/
-        while (true) {
-
-            Book book = new Book();
-            Employee employee = new Employee();
-            Customer customer = new Customer();
-            //set bookPhone.book
-            if (input.equals("1")) {
-                System.out.println("enter bookPhone.book name:");
-                book.setName(sc.next());
-                System.out.println("enter bookPhone.book author name:");
-                book.setAuthor(sc.next());
-                System.out.println("enter bookPhone.book code:");
-                String code = sc.next();
-                book.setCode(Integer.parseInt(code));
-                System.out.println("enter price bookPhone.book");
-                book.setPrice(sc.nextInt());
-                book.setId(idBook);
-
-
-                System.out.println("Book name: " + book.getName());
-                System.out.println("Book author: " + book.getAuthor());
-                System.out.println("Book code: " + book.getCode());
-                System.out.println("bookPhone.book price: " + book.getPrice());
-            }
-
-            if (input.equals("2")) {
-                System.out.println("enter bookPhone.employee code:");
-                employee.setEmployeeCode(sc.nextInt());
-                System.out.println("enter bookPhone.employee name:");
-                employee.setName(sc.next());
-                System.out.println("enter bookPhone.employee family:");
-                employee.setFamily(sc.next());
-                System.out.println("enter bookPhone.employee nationalCode:");
-                employee.setNationalCode(sc.nextInt());
-                System.out.println("enter bookPhone.employee number:");
-                employee.setNumber(sc.nextInt());
-                System.out.println();
-                employee.setId(idEmployee);
-
-                System.out.println("bookPhone.employee code : " + employee.getEmployeeCode());
-                System.out.println("bookPhone.employee name : " + employee.getName());
-                System.out.println("bookPhone.employee family: " + employee.getFamily());
-                System.out.println("bookPhone.employee nationalCode: " + employee.getNationalCode());
-                System.out.println("bookPhone.employee number:" + employee.getNumber());
-
-            }
-            if (input.equals("3")) {
-                System.out.println("enter bookPhone.customer name:");
-                customer.setName(sc.next());
-                System.out.println("enter bookPhone.customer family:");
-                customer.setFamily(sc.next());
-                System.out.println("enter bookPhone.customer nationalCode:");
-                customer.setNationalCode(sc.nextInt());
-                System.out.println("enter bookPhone.customer number:");
-                customer.setNumber(sc.nextInt());
-                customer.setId(idCustomer);
-
-                System.out.println("bookPhone.customer name:" + customer.getName());
-                System.out.println("bookPhone.customer family:" + customer.getFamily());
-                System.out.println("bookPhone.customer nationalCode:" + customer.getNationalCode());
-                System.out.println("bookPhone.customer number:" + customer.getNumber());
-                System.out.println("");
-            }
-
-
-            b.add(book);
-            e.add(employee);
-            c.add(customer);
-
-            /*switch (input) {
-                case "1":
-                    System.out.println("bookPhone.book" + b);
                     break;
-                case "2":
-                    System.out.println("bookPhone.employee" + e);
+                case 2:
+                    showPerson();
                     break;
-                case "3":
-                    System.out.println("bookPhone.customer" + c);
+                case 3:
+                    System.out.println("enter your city __street __ name __ postCode __ unit:");
+                    addres.setCity(sc.next());
+                    addres.setStreet(sc.next());
+                    addres.setName(sc.next());
+                    addres.setPostCode(sc.nextInt());
+                    addres.setUnit(sc.nextInt());
+                    adresses.add(addres);
                     break;
-                default:
-                    System.out.println("error");
+                case 4:
+                    showAddress();
+                    break;
+                case 5:
+                    System.out.println("enter your phone number:");
+                    tele.setNumber(sc.nextLong());
+                    System.out.println("type:\n hamrah\tsabet");
+                    tele.setType(sc.next());
+                    telephons.add(tele);
+                    break;
+                case 6:
+                    showTelephone();
+                    break;
+                case 7:
+                    showAll();
+                    break;
+                case 8:
+                    System.out.println("count:");
+                    int karbar2=sc.nextInt();
+                    searchByCount(karbar2);
+                    break;
+                case 9:
+                    System.out.println("enter Gender you need: ");
+                    String user3 = sc.next();
+//                    searchGender(user3);
+                    break;
+                case 10:
+                    t = false;
+                    break;
             }
-*/
-            idBook++;
-            idEmployee++;
-            idCustomer++;
-            System.out.println("id bookPhone.book : " + book.getId());
-            System.out.println("id bookPhone.employee:" + employee.getId());
-            System.out.println("id bookPhone.customer:" + customer.getId());
 
-
-            String str = "Do you want to continue? ";
-            System.out.print(str);
-            String user = sc.next();           //next instead nextLine for run if//
-            if (user.equals("yes")) {
-                continue;
-            } else if (user.equals("no")) {
-                break;
-            }
 
         }
-
-        //System.out.println(b.get(0).getName());
-
-    }
-        private static void showMember () {
-        }
-
-        private static void borrowBook () {
-        }
-
-        private static void buyBook () {
-        }
-
-
     }
 
 
+//    public Adress getAddress(int count){
+//        for (Adress adress:adresses) {
+////            adress.
+//        }
+//    }
+//
+
+//    public static void searchGender(String user3){
+//        for(Gender en:Gender.values()) {
+//            if (user3.equals("men")) {
+//                men men1 = new men();
+//                System.out.println(men1.getCount());
+//            } else if (user3.equals("women")) {
+//                women women1 = new women();
+//                System.out.println(women1.getCount());
+//            }
+//
+//        }
+//        for(Person item:person){
+//            System.out.println(item);
+//        }
+//    }
 
 
 
+/*
+    @Override
+    public int search(int codemelli) {
+        return 0;
+    }
 
+    @Override
+    public person.Person searchName(String name) {
+        return null;
+    }
 
-
+    @Override
+    public person.Person search(String family) {
+        return null;
+    }*/
+}

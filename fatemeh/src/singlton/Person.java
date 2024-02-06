@@ -3,12 +3,17 @@ package singlton;
 import java.util.ArrayList;
 
 public class Person {
-    ArrayList<Person> person = new ArrayList<>();
 
     private Person() {
     }
 
-    private static 
+   private static ArrayList<Person> person = new ArrayList<>();
+    public static ArrayList<Person> getInstance(){
+        return person;
+
+    }
+
+
 
 
 }

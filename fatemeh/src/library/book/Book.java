@@ -1,4 +1,4 @@
-package bookPhone.book;
+package library.book;
 
 public class Book {
     private int code;

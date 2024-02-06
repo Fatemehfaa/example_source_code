@@ -1,11 +1,21 @@
-package bookPhone.customer;
+package library.employee;
 
-public class Customer {
+public class Employee {
+    private int employeeCode;
     private String name;
     private String family;
     private int nationalCode;
     private int number;
     private int id;
+
+
+    public int getEmployeeCode() {
+        return employeeCode;
+    }
+
+    public void setEmployeeCode(int employeeCode) {
+        this.employeeCode = employeeCode;
+    }
 
     public String getName() {
         return name;
@@ -46,6 +56,4 @@ public class Customer {
     public void setId(int id) {
         this.id = id;
     }
-
-
 }

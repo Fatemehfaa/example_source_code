@@ -1,4 +1,4 @@
-package bookPhone.book;
+package library.book;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,18 +25,18 @@ public class BookService {
     private static void addBook() {
         while (true) {
             Book book = new Book();
-            System.out.println("enter bookPhone.book name:");
+            System.out.println("enter library.book name:");
             book.setName(sc.next());
-            System.out.println("enter bookPhone.book author name:");
+            System.out.println("enter library.book author name:");
             book.setAuthor(sc.next());
-            System.out.println("enter bookPhone.book code:");
+            System.out.println("enter library.book code:");
             String code = sc.next();
             book.setCode(Integer.parseInt(code));
-            System.out.println("enter price bookPhone.book");
+            System.out.println("enter price library.book");
             book.setPrice(sc.nextInt());
             book.setId(idBook);
             idBook++;
-            System.out.println("id bookPhone.book : " + book.getId());
+            System.out.println("id library.book : " + book.getId());
             b.add(book);
 
             String str = "Do you want to continue? ";
@@ -67,9 +67,9 @@ public class BookService {
         }
 
 //        for (int i = 0; i < b.size() ; i++) {
-//            Book bookPhone.book = b.get(i);
-//           if (bookPhone.book.getId()==id){
-//               System.out.println(bookPhone.book);
+//            Book library.book = b.get(i);
+//           if (library.book.getId()==id){
+//               System.out.println(library.book);
 //           }
 //       }
     }
@@ -80,13 +80,13 @@ public class BookService {
             int user= sc.nextInt();
             for(Book i:b){
                 if(i.getId()==user){
-                /*    System.out.println("enter new bookPhone.book name:");
+                /*    System.out.println("enter new library.book name:");
                     i.setName(sc.next());
-                    System.out.println("enter new bookPhone.book author name:");
+                    System.out.println("enter new library.book author name:");
                     i.setAuthor(sc.next());
-                    System.out.println("enter new bookPhone.book code:");
+                    System.out.println("enter new library.book code:");
                     i.setCode(sc.nextInt());
-                    System.out.println("enter new price bookPhone.book");
+                    System.out.println("enter new price library.book");
                     i.setPrice(sc.nextInt());*/
             /*        //System.out.println(i.getAuthor());
                     System.out.println("Name="+i.getName());
@@ -97,16 +97,16 @@ public class BookService {
                     System.out.println("what do you want to update? ");
             String which = sc.next();
            if(which.equals("name")){
-               System.out.println("enter new bookPhone.book name:");
+               System.out.println("enter new library.book name:");
                i.setName(sc.next());
             } else if (which.equals("author")) {
-               System.out.println("enter new bookPhone.book author name:");
+               System.out.println("enter new library.book author name:");
                i.setAuthor(sc.next());
            } else if (which.equals("code")) {
-               System.out.println("enter new bookPhone.book code:");
+               System.out.println("enter new library.book code:");
                i.setCode(sc.nextInt());
            } else if (which.equals("price")) {
-               System.out.println("enter new price bookPhone.book");
+               System.out.println("enter new price library.book");
                i.setPrice(sc.nextInt());
            }
                     System.out.println(i);
@@ -145,7 +145,7 @@ public class BookService {
                 if(i.getId()==use){
                     System.out.println(b.remove(0));
                     System.out.println(i);
-                    b.remove(bookPhone.book);
+                    b.remove(library.book);
                     System.out.println(i);
                     System.out.println("what do you want to remove? ");
                     String which = sc.next();
