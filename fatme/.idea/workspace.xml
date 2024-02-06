@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc88752e-33ca-4503-9d1b-5af878aa501c" name="Changes" comment="fatemeh neveshte yek khat">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/MainC$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/MainC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/Men.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/Women.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/book/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/book/BookService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/customer/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/library/employee/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/MainC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/Men.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/Women.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/BookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/customer/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookPhone/employee/Employee.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2bcygZ4Mpg4zdd3HHdIXI2OHDwP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/gitHub_fathaliyan/fatemeh"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SampleCode\fateme\library\fatme\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainC">
+    <configuration name="BookService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bookPhone.book.BookService" />
+      <module name="library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bookPhone.book.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bookPhone.MainC" />
+      <module name="library" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainC" />
+        <item itemvalue="Application.BookService" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc88752e-33ca-4503-9d1b-5af878aa501c" name="Changes" comment="" />
+      <created>1706528774076</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706528774076</updated>
+      <workItem from="1706528775521" duration="7087000" />
+      <workItem from="1706593829511" duration="22585000" />
+      <workItem from="1706677926468" duration="9901000" />
+      <workItem from="1706938452942" duration="14956000" />
+      <workItem from="1707116630127" duration="8094000" />
+      <workItem from="1707197919500" duration="5361000" />
+      <workItem from="1707218701476" duration="2697000" />
+    </task>
+    <task id="LOCAL-00001" summary="fatemeh neveshte yek khat">
+      <created>1707219289085</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707219289085</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fatemeh neveshte yek khat" />
+    <option name="LAST_COMMIT_MESSAGE" value="fatemeh neveshte yek khat" />
+  </component>
+</project>
