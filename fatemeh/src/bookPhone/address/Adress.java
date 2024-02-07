@@ -1,6 +1,8 @@
 package bookPhone.address;
 
-public class Adress {
+import bookPhone.person.Person;
+
+public class Adress extends Person {
 
     private int id=0;
     private String city;
@@ -49,7 +51,7 @@ public class Adress {
 
     }
 
-    public void setName(String next) {
+    public void setName(String next) {this.name = name;
     }
 
     public int getId() {

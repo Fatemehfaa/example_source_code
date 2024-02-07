@@ -2,33 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc88752e-33ca-4503-9d1b-5af878aa501c" name="Changes" comment="fatemeh neveshte yek khat">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/MainC$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/MainC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/Men.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/Women.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/book/Book.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/book/BookService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/customer/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/library/employee/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/MainC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/Men.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/Women.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/BookService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/book/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/customer/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookPhone/employee/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/address/Adress.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/address/Adress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/person/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/out/production/library/bookPhone/person/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/src/bookPhone/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/src/bookPhone/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/src/bookPhone/address/Adress.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/src/bookPhone/address/Adress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fatemeh/src/bookPhone/person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fatemeh/src/bookPhone/person/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,15 +35,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/gitHub_fathaliyan/fatemeh"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/gitHub_fathaliyan/fatemeh&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SampleCode\fateme\library\fatme\src" />
@@ -112,6 +92,8 @@
       <workItem from="1707116630127" duration="8094000" />
       <workItem from="1707197919500" duration="5361000" />
       <workItem from="1707218701476" duration="2697000" />
+      <workItem from="1707284929311" duration="686000" />
+      <workItem from="1707293194519" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="fatemeh neveshte yek khat">
       <created>1707219289085</created>

@@ -8,7 +8,7 @@ import bookPhone.address.Adress;
 }*/
 public abstract class Person {
 
-    private  int count=0;
+    private  int count;
     private  String name;
     private String family;
     private Adress adress;
