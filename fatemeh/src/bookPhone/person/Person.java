@@ -1,6 +1,7 @@
 package bookPhone.person;
 
 import bookPhone.address.Adress;
+import bookPhone.telephone.telephon;
 
 /*enum Gender{
     men,
@@ -12,21 +13,27 @@ public abstract class Person {
     private  String name;
     private String family;
     private Adress adress;
-
+    private telephon tele ;
 
     @Override
     public String toString() {
-        return "person.Person{" +
+        return "Person{" +
                 "count=" + count +
                 ", name='" + name + '\'' +
                 ", family='" + family + '\'' +
-                /**
-                 * description: اینجا وقتی آدرس و میخواد چاپ کنه میره تویه کلاس آدرس و toString اون کلاس میاره و برای چاپ بر اساس همون toString کلاس آدرس چاپ میکنه
-                 * */
-                ", address='"+adress+'\''+
+                ", adress=" + adress +
+                ", tele=" + tele +
                 '}';
     }
 
+
+    public telephon getTele() {
+        return tele;
+    }
+
+    public void setTele(telephon tele) {
+        this.tele = tele;
+    }
 
     public int getCount() {
         return count;

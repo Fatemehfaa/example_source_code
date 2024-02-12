@@ -1,5 +1,7 @@
 package bookPhone.telephone;
 
+import bookPhone.person.Person;
+
 public class telephon {
     private long number;
     private String type;

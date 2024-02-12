@@ -64,7 +64,6 @@ public class Main {
 
         boolean t = true;
         while (t) {
-            telephon tele = new telephon();
 
             System.out.println("----telephone------");
             System.out.println("(1) add person");
@@ -140,15 +139,6 @@ public class Main {
 
                     System.out.println("id: "+addres.getId());
                     id++;
-//                    System.out.println("enter your id: ");
-//                    int user4 = sc.nextInt();
-//                    for (Adress item:adresses){
-//                        if(item.getId()==user4){
-//                            System.out.println(item);
-//                            System.out.println(item.getCity());
-//                            getAddress(user4);
-//                        }
-//                    }
 
                     adresses.add(addres);
                     break;
@@ -159,11 +149,13 @@ public class Main {
                     showAddress();
                     break;
                 case 5:
+                    telephon tele = new telephon();
                     System.out.println("enter your phone number:");
                     tele.setNumber(sc.nextLong());
                     System.out.println("type:\n hamrah\tsabet");
                     tele.setType(sc.next());
                     telephons.add(tele);
+
                     break;
                 case 6:
                     showTelephone();
@@ -184,6 +176,7 @@ public class Main {
 
         }
     }
+
 
     private static void showAddress() {
         for (Adress adress:adresses) {
@@ -215,6 +208,8 @@ public class Main {
 
         return address;
     }
+
+
 
 /*
     @Override
