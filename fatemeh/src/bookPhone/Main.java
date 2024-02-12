@@ -68,6 +68,7 @@ public class Main {
     static ArrayList<telephon> telephons = new ArrayList<>();
     static ArrayList<Person> person = new ArrayList<>();
     static int count = 1;
+    static int id = 1;
 
     private static void add() {
         Scanner sc = new Scanner(System.in);
@@ -110,6 +111,7 @@ public class Main {
                         addres.setName(sc.next());
                         addres.setPostCode(sc.nextInt());
                         addres.setUnit(sc.nextInt());
+                        //addres.setId(count);
                         men1.setAdress(addres);
                         count++;
                         person.add(men1);
@@ -121,15 +123,22 @@ public class Main {
                         women1.setFamily(sc.next());
                         women1.setCount(count);
                         System.out.println("count: "+women1.getCount());
-                        //women1.setAdress(getAddress(user3));
+
+                        System.out.println("----------");
                         System.out.println("enter your city __street __ name __ postCode __ unit:");
                         addres.setCity(sc.next());
                         addres.setStreet(sc.next());
                         addres.setName(sc.next());
                         addres.setPostCode(sc.nextInt());
                         addres.setUnit(sc.nextInt());
-                        men1.setAdress(addres);
+                        addres.setId(id);
+                        System.out.println("id: "+addres.getId());
+
+
+                        women1.setAdress(getAddress(id));
                         women1.setAdress(addres);
+
+                        id++;
                         count++;
                         person.add(women1);
                     }else {
@@ -148,6 +157,8 @@ public class Main {
                     }
                     break;
                 case 3:
+                    int user4 = sc.nextInt();
+                    getAddress(user4);
                     break;
                 case 4:
                     //showAddress();
@@ -171,9 +182,9 @@ public class Main {
                     searchByCount(karbar2);
                     break;
                 case 9:
-                    System.out.println("enter Gender you need: ");
+                  /*  System.out.println("enter Gender you need: ");
                     String user4 = sc.next();
-//                    searchGender(user3);
+//                    searchGender(user3);*/
                     break;
                 case 10:
                     t = false;
@@ -184,7 +195,7 @@ public class Main {
         }
     }
 
-/*    public static Adress getAddress(int id){
+    public static Adress getAddress(int id){
         for (Adress adress:adresses) {
             if(adress.getId()==id){
                 return adress;
@@ -192,7 +203,6 @@ public class Main {
         }
         return null;
     }
-    */
 /*
     @Override
     public int search(int codemelli) {
