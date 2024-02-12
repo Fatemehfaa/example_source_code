@@ -23,9 +23,6 @@ public abstract class Person {
                 '}';
     }
 
-    public void searchByGender(){
-
-    }
 
     public int getCount() {
         return count;
@@ -64,10 +61,7 @@ public abstract class Person {
     }
 
 
-    public int countAll(){
-        return count;
 
-    }
     //public abstract int search(int codemelli );
     //public abstract person.Person searchName(String name);
     //public abstract person.Person search(String family);

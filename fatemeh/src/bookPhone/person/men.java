@@ -3,7 +3,6 @@ package bookPhone.person;
 public class men extends Person {
     public men() {
         super();
-        searchByGender();
     }
 
 

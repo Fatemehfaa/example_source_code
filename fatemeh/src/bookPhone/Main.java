@@ -59,11 +59,6 @@ public class Main {
     }
 
 
-
-    public void search(int code){
-
-    }
-
     static ArrayList<Adress> adresses = new ArrayList<>();
     static ArrayList<telephon> telephons = new ArrayList<>();
     static ArrayList<Person> person = new ArrayList<>();
@@ -75,10 +70,7 @@ public class Main {
 
         boolean t = true;
         while (t) {
-            Adress addres = new Adress();
             telephon tele = new telephon();
-            men men1 = new men();
-            women women1 = new women();
 
             System.out.println("----telephone------");
             System.out.println("(1) add person");
@@ -89,12 +81,12 @@ public class Main {
             System.out.println("(6) show telephone");
             System.out.println("(7) show all");
             System.out.println("(8) search");
-            System.out.println("(9) search by Gender");
-            System.out.println("(10) exist");
+            System.out.println("(9) exist");
 
             int user = sc.nextInt();
             switch (user) {
                 case 1:
+                    men men1 = new men();
                     System.out.println("enter your gender");
                     String karbar= sc.next();
                     if(karbar.equals("men")){
@@ -104,19 +96,14 @@ public class Main {
                         men1.setFamily(sc.next());
                         men1.setCount(count);
                         System.out.println("count: "+men1.getCount());
-                        //men1.setAdress(getAddress(user3));
-                        System.out.println("enter your city __street __ name __ postCode __ unit:");
-                        addres.setCity(sc.next());
-                        addres.setStreet(sc.next());
-                        addres.setName(sc.next());
-                        addres.setPostCode(sc.nextInt());
-                        addres.setUnit(sc.nextInt());
+                        //men1.setAdress(getAddress(id));
                         //addres.setId(count);
-                        men1.setAdress(addres);
+                        //men1.setAdress(addres);
                         count++;
                         person.add(men1);
 
                     } else if (karbar.equals("women")) {
+                        women women1 = new women();
                         System.out.println("enter your name:");
                         women1.setName(sc.next());
                         System.out.println("enter your family");
@@ -124,21 +111,9 @@ public class Main {
                         women1.setCount(count);
                         System.out.println("count: "+women1.getCount());
 
-                        System.out.println("----------");
-                        System.out.println("enter your city __street __ name __ postCode __ unit:");
-                        addres.setCity(sc.next());
-                        addres.setStreet(sc.next());
-                        addres.setName(sc.next());
-                        addres.setPostCode(sc.nextInt());
-                        addres.setUnit(sc.nextInt());
-                        addres.setId(id);
-                        System.out.println("id: "+addres.getId());
-
-
-                        women1.setAdress(getAddress(id));
-                        women1.setAdress(addres);
-
-                        id++;
+                        //women1.setAdress(getAddress(id));
+                        //women1.setAdress(addres);
+                        //id++;
                         count++;
                         person.add(women1);
                     }else {
@@ -146,7 +121,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("enter id:");
+                 /*   System.out.println("enter id:");
                     int user3 = sc.nextInt();
 
                     for(Person i : person){
@@ -154,11 +129,32 @@ public class Main {
                             System.out.println(i);
                             System.out.println(i.getAdress());
                         }
-                    }
+                    }*/
                     break;
                 case 3:
+                    Adress addres = new Adress();
+                    System.out.println("enter your city __street __ name __ postCode __ unit:");
+                    addres.setCity(sc.next());
+                    addres.setStreet(sc.next());
+                    addres.setName(sc.next());
+                    addres.setPostCode(sc.nextInt());
+                    addres.setUnit(sc.nextInt());
+                    addres.setId(id);
+                   // men1.setAdress(getAddress(id));
+                   // men1.setAdress(addres);
+
+
+                    System.out.println("id: "+addres.getId());
+                    id++;
+                    System.out.println("enter your id: ");
                     int user4 = sc.nextInt();
-                    getAddress(user4);
+                    for (Adress item:adresses){
+                        if(item.getId()==user4){
+                            System.out.println(item);
+                            System.out.println(item.getCity());
+                            getAddress(user4);
+                        }
+                    }
                     break;
                 case 4:
                     //showAddress();
@@ -182,11 +178,6 @@ public class Main {
                     searchByCount(karbar2);
                     break;
                 case 9:
-                  /*  System.out.println("enter Gender you need: ");
-                    String user4 = sc.next();
-//                    searchGender(user3);*/
-                    break;
-                case 10:
                     t = false;
                     break;
             }
@@ -203,6 +194,7 @@ public class Main {
         }
         return null;
     }
+
 /*
     @Override
     public int search(int codemelli) {
