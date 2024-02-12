@@ -11,17 +11,18 @@ public abstract class Person {
     private  int count;
     private  String name;
     private String family;
-    private Adress adress;
-
 
     @Override
     public String toString() {
-        return "person.Person{" +
+        return "Person{" +
                 "count=" + count +
                 ", name='" + name + '\'' +
                 ", family='" + family + '\'' +
+                ", adress=" + adress +
                 '}';
     }
+
+    private Adress adress;
 
 
     public int getCount() {
