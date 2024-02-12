@@ -20,6 +20,10 @@ public abstract class Person {
                 "count=" + count +
                 ", name='" + name + '\'' +
                 ", family='" + family + '\'' +
+                /**
+                 * description: اینجا وقتی آدرس و میخواد چاپ کنه میره تویه کلاس آدرس و toString اون کلاس میاره و برای چاپ بر اساس همون toString کلاس آدرس چاپ میکنه
+                 * */
+                ", address='"+adress+'\''+
                 '}';
     }
 
