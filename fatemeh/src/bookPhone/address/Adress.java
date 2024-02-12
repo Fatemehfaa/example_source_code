@@ -4,12 +4,25 @@ import bookPhone.person.Person;
 
 public class Adress {
 
-    private int id;
+    private int id = 1;
     private String city;
     private String street;
     private String name;
     private int postCode;
     private int unit;
+
+
+    public Adress() {
+        setId(id++);
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getCity() {
         return city;
@@ -31,6 +44,10 @@ public class Adress {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getPostCode() {
         return postCode;
     }
@@ -45,21 +62,6 @@ public class Adress {
 
     public void setUnit(int unit) {
         this.unit = unit;
-    }
-
-    public Adress() {
-
-    }
-
-    public void setName(String next) {this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override

@@ -11,22 +11,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         add();
     }
 
-  /*  private static void showAddress() {
-        for (Adress item : adresses) {
-            System.out.println(item);
-
-        }
-    }*/
     private static void showTelephone(){
         for (telephon i:telephons){
             System.out.println(i);
 
         }
     }
+
     public static void showPerson(){
         for(Person item:person){
             System.out.println(item);
@@ -35,26 +32,23 @@ public class Main {
 
 
     public static void showAll() {
-        for (Person item : person) {
-            System.out.println(item);
+        for (Person per : person) {
+            System.out.println(per);
         }
-
-        for (telephon i : telephons) {
-            System.out.println(i);
-
+        for (telephon telephon : telephons) {
+            System.out.println(telephon);
         }
         for (Adress item : adresses) {
             System.out.println(item);
-
         }
     }
-    static Scanner sc = new Scanner(System.in);
+
+
     public static void searchByCount(int count){
         for(Person i: person){
             if(i.getCount()==count){
                 System.out.println(i);
             }
-
         }
     }
 
@@ -86,19 +80,24 @@ public class Main {
             int user = sc.nextInt();
             switch (user) {
                 case 1:
-                    men men1 = new men();
                     System.out.println("enter your gender");
                     String karbar= sc.next();
                     if(karbar.equals("men")){
+                        men men1 = new men();
                         System.out.println("enter your name:");
                         men1.setName(sc.next());
                         System.out.println("enter your family");
                         men1.setFamily(sc.next());
                         men1.setCount(count);
+
+                        /**
+                         * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
+                         * */
+                        Adress forSetAddress = getForSetAddress();
+                        men1.setAdress(forSetAddress);
+
+
                         System.out.println("count: "+men1.getCount());
-                        //men1.setAdress(getAddress(id));
-                        //addres.setId(count);
-                        //men1.setAdress(addres);
                         count++;
                         person.add(men1);
 
@@ -111,9 +110,13 @@ public class Main {
                         women1.setCount(count);
                         System.out.println("count: "+women1.getCount());
 
-                        //women1.setAdress(getAddress(id));
-                        //women1.setAdress(addres);
-                        //id++;
+                        /**
+                         * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
+                         * */
+                        Adress forSetAddress = getForSetAddress();
+                        women1.setAdress(forSetAddress);
+
+
                         count++;
                         person.add(women1);
                     }else {
@@ -121,15 +124,9 @@ public class Main {
                     }
                     break;
                 case 2:
-                 /*   System.out.println("enter id:");
-                    int user3 = sc.nextInt();
-
-                    for(Person i : person){
-                        if(i.getCount() == user3){
-                            System.out.println(i);
-                            System.out.println(i.getAdress());
-                        }
-                    }*/
+                    for (Person per:person) {
+                        System.out.println(per);
+                    }
                     break;
                 case 3:
                     Adress addres = new Adress();
@@ -140,25 +137,26 @@ public class Main {
                     addres.setPostCode(sc.nextInt());
                     addres.setUnit(sc.nextInt());
                     addres.setId(id);
-                   // men1.setAdress(getAddress(id));
-                   // men1.setAdress(addres);
-
 
                     System.out.println("id: "+addres.getId());
                     id++;
-                    System.out.println("enter your id: ");
-                    int user4 = sc.nextInt();
-                    for (Adress item:adresses){
-                        if(item.getId()==user4){
-                            System.out.println(item);
-                            System.out.println(item.getCity());
-                            getAddress(user4);
+//                    System.out.println("enter your id: ");
+//                    int user4 = sc.nextInt();
+//                    for (Adress item:adresses){
+//                        if(item.getId()==user4){
+//                            System.out.println(item);
+//                            System.out.println(item.getCity());
+//                            getAddress(user4);
+//                        }
+//                    }
 
-                        }
-                    }
+                    adresses.add(addres);
                     break;
                 case 4:
-                    //showAddress();
+                    /**
+                     * چاپ تمام آدرس های وارد شده
+                     * */
+                    showAddress();
                     break;
                 case 5:
                     System.out.println("enter your phone number:");
@@ -187,6 +185,12 @@ public class Main {
         }
     }
 
+    private static void showAddress() {
+        for (Adress adress:adresses) {
+            System.out.println(adress);
+        }
+    }
+
     public static Adress getAddress(int id){
         for (Adress adress:adresses) {
             if(adress.getId()==id){
@@ -194,6 +198,22 @@ public class Main {
             }
         }
         return null;
+    }
+
+    public static Adress getForSetAddress(){
+        /**
+         * description: میخواهیم ادرس را بر اساس Id که درون آدرس وجود دارد دریافت کنیم.
+         *  و آبجکت آدرس که به عنوان خروجی به ما داده شده است را به ادرس درون person اضافه میکنیم
+         * */
+        System.out.println("enter id address : ");
+        int idAddress = sc.nextInt();
+        /**
+         * در این حالت ما ادرس مورد نظر را بر اساس id آن دریافت کردیم
+         * */
+        Adress address = getAddress(idAddress);
+        /* ادرس دریافتی را اضافه میکنم به مشخصات شخص */
+
+        return address;
     }
 
 /*

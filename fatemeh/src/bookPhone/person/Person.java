@@ -11,18 +11,21 @@ public abstract class Person {
     private  int count;
     private  String name;
     private String family;
+    private Adress adress;
+
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "person.Person{" +
                 "count=" + count +
                 ", name='" + name + '\'' +
                 ", family='" + family + '\'' +
-                ", adress=" + adress +
+                /**
+                 * description: اینجا وقتی آدرس و میخواد چاپ کنه میره تویه کلاس آدرس و toString اون کلاس میاره و برای چاپ بر اساس همون toString کلاس آدرس چاپ میکنه
+                 * */
+                ", address='"+adress+'\''+
                 '}';
     }
-
-    private Adress adress;
 
 
     public int getCount() {
