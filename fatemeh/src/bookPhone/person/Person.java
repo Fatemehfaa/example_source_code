@@ -3,6 +3,8 @@ package bookPhone.person;
 import bookPhone.address.Adress;
 import bookPhone.telephone.telephon;
 
+import java.util.ArrayList;
+
 /*enum Gender{
     men,
     women
@@ -70,12 +72,5 @@ public abstract class Person {
 
         count ++;
     }
-
-
-
-    //public abstract int search(int codemelli );
-    //public abstract person.Person searchName(String name);
-    //public abstract person.Person search(String family);
-
 
 }

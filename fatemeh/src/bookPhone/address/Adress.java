@@ -2,9 +2,9 @@ package bookPhone.address;
 
 import bookPhone.person.Person;
 
-public class Adress {
+public class Adress  {
 
-    private int id = 1;
+    private int id ;
     private String city;
     private String street;
     private String name;

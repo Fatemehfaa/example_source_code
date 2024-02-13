@@ -5,27 +5,19 @@ import bookPhone.person.Person;
 import bookPhone.person.men;
 import bookPhone.person.women;
 import bookPhone.telephone.telephon;
-import library.book.Book;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         add();
     }
 
-    private static void showTelephone(){
-        for (telephon i:telephons){
-            System.out.println(i);
 
-        }
-    }
-
-    public static void showPerson(){
-        for(Person item:person){
+    public static void showPerson() {
+        for (Person item : person) {
             System.out.println(item);
         }
     }
@@ -44,9 +36,9 @@ public class Main {
     }
 
 
-    public static void searchByCount(int count){
-        for(Person i: person){
-            if(i.getCount()==count){
+    public static void searchByCount(int count) {
+        for (Person i : person) {
+            if (i.getCount() == count) {
                 System.out.println(i);
             }
         }
@@ -58,6 +50,7 @@ public class Main {
     static ArrayList<Person> person = new ArrayList<>();
     static int count = 1;
     static int id = 1;
+    static int idPhone = 1;
 
     private static void add() {
         Scanner sc = new Scanner(System.in);
@@ -80,8 +73,8 @@ public class Main {
             switch (user) {
                 case 1:
                     System.out.println("enter your gender");
-                    String karbar= sc.next();
-                    if(karbar.equals("men")){
+                    String karbar = sc.next();
+                    if (karbar.equals("men")) {
                         men men1 = new men();
                         System.out.println("enter your name:");
                         men1.setName(sc.next());
@@ -89,16 +82,22 @@ public class Main {
                         men1.setFamily(sc.next());
                         men1.setCount(count);
 
-                        /**
-                         * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
-                         * */
+
+/**
+ * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
+ * */
+
                         Adress forSetAddress = getForSetAddress();
                         men1.setAdress(forSetAddress);
 
+                        telephon addTele = addTele2();
+                        men1.setTele(addTele);
 
-                        System.out.println("count: "+men1.getCount());
+
+                        System.out.println("count: " + men1.getCount());
                         count++;
                         person.add(men1);
+
 
                     } else if (karbar.equals("women")) {
                         women women1 = new women();
@@ -107,23 +106,30 @@ public class Main {
                         System.out.println("enter your family");
                         women1.setFamily(sc.next());
                         women1.setCount(count);
-                        System.out.println("count: "+women1.getCount());
+                        System.out.println("count: " + women1.getCount());
 
-                        /**
-                         * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
-                         * */
+
+/**
+ * متد getForSetAddress() بر اساس id اطلاعات ادرس را دریافت کرده و به اطلاعات شخص اضافه میکند
+ * */
+
                         Adress forSetAddress = getForSetAddress();
                         women1.setAdress(forSetAddress);
+
+                        telephon addTele = addTele2();
+                        women1.setTele(addTele);
 
 
                         count++;
                         person.add(women1);
-                    }else {
+
+
+                    } else {
                         System.out.println("invalid");
                     }
                     break;
                 case 2:
-                    for (Person per:person) {
+                    for (Person per : person) {
                         System.out.println(per);
                     }
                     break;
@@ -137,15 +143,12 @@ public class Main {
                     addres.setUnit(sc.nextInt());
                     addres.setId(id);
 
-                    System.out.println("id: "+addres.getId());
+                    System.out.println("id: " + addres.getId());
                     id++;
 
                     adresses.add(addres);
                     break;
                 case 4:
-                    /**
-                     * چاپ تمام آدرس های وارد شده
-                     * */
                     showAddress();
                     break;
                 case 5:
@@ -154,6 +157,14 @@ public class Main {
                     tele.setNumber(sc.nextLong());
                     System.out.println("type:\n hamrah\tsabet");
                     tele.setType(sc.next());
+                    tele.setIdPhone(idPhone);
+                    System.out.println("idPhone: " + tele.getIdPhone());
+
+
+
+
+
+                    idPhone++;
                     telephons.add(tele);
 
                     break;
@@ -165,11 +176,14 @@ public class Main {
                     break;
                 case 8:
                     System.out.println("count:");
-                    int karbar2=sc.nextInt();
+                    int karbar2 = sc.nextInt();
                     searchByCount(karbar2);
                     break;
                 case 9:
                     t = false;
+                    break;
+                case 10 :
+                    showPerson();
                     break;
             }
 
@@ -177,53 +191,54 @@ public class Main {
         }
     }
 
+    private static bookPhone.telephone.telephon addTele2() {
+        System.out.println("id phone user: ");
+        int idPhoneUser = sc.nextInt();
+        telephon telephone =addTelephone(idPhoneUser);
+        return telephone;
+    }
+
 
     private static void showAddress() {
-        for (Adress adress:adresses) {
+        for (Adress adress : adresses) {
             System.out.println(adress);
         }
     }
 
-    public static Adress getAddress(int id){
-        for (Adress adress:adresses) {
-            if(adress.getId()==id){
+    public static Adress getAddress(int id) {
+        for (Adress adress : adresses) {
+            if (adress.getId() == id) {
                 return adress;
             }
         }
         return null;
     }
 
-    public static Adress getForSetAddress(){
-        /**
-         * description: میخواهیم ادرس را بر اساس Id که درون آدرس وجود دارد دریافت کنیم.
-         *  و آبجکت آدرس که به عنوان خروجی به ما داده شده است را به ادرس درون person اضافه میکنیم
-         * */
+    public static Adress getForSetAddress() {
+/**
+ * description: میخواهیم ادرس را بر اساس Id که درون آدرس وجود دارد دریافت کنیم.
+ *  و آبجکت آدرس که به عنوان خروجی به ما داده شده است را به ادرس درون person اضافه میکنیم
+ * */
         System.out.println("enter id address : ");
         int idAddress = sc.nextInt();
-        /**
-         * در این حالت ما ادرس مورد نظر را بر اساس id آن دریافت کردیم
-         * */
         Adress address = getAddress(idAddress);
         /* ادرس دریافتی را اضافه میکنم به مشخصات شخص */
-
         return address;
     }
 
+    private static void showTelephone() {
+        for (telephon i : telephons) {
+                System.out.println(i);
+            }
+        }
 
-
-/*
-    @Override
-    public int search(int codemelli) {
-        return 0;
-    }
-
-    @Override
-    public person.Person searchName(String name) {
+    public static telephon addTelephone(int idPhone){
+        for(telephon i : telephons){
+            if (i.getIdPhone() == idPhone) {
+                return i;
+            }
+        }
         return null;
     }
 
-    @Override
-    public person.Person search(String family) {
-        return null;
-    }*/
 }
