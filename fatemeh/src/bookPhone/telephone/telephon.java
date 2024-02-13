@@ -6,7 +6,12 @@ public class telephon {
      private int idPhone;
     private long number;
     private String type;
+    private Person person;
 
+
+    public Person getPerson() {
+        return person;
+    }
 
     @Override
     public String toString() {
@@ -14,7 +19,12 @@ public class telephon {
                 "idPhone=" + idPhone +
                 ", number=" + number +
                 ", type='" + type + '\'' +
+                ", person=" + person +
                 '}';
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
 

@@ -90,10 +90,10 @@ public class Main {
                         Adress forSetAddress = getForSetAddress();
                         men1.setAdress(forSetAddress);
 
-                        telephon addTele = addTele2();
+                 /*       telephon addTele = addTele2();
                         men1.setTele(addTele);
 
-
+*/
                         System.out.println("count: " + men1.getCount());
                         count++;
                         person.add(men1);
@@ -116,9 +116,9 @@ public class Main {
                         Adress forSetAddress = getForSetAddress();
                         women1.setAdress(forSetAddress);
 
-                        telephon addTele = addTele2();
+                        /*telephon addTele = addTele2();
                         women1.setTele(addTele);
-
+*/
 
                         count++;
                         person.add(women1);
@@ -160,10 +160,13 @@ public class Main {
                     tele.setIdPhone(idPhone);
                     System.out.println("idPhone: " + tele.getIdPhone());
 
-
-
-
-
+                    System.out.println("add person id: ");
+                    int idPerson = sc.nextInt();
+                    for(Person i : person){
+                        if(i.getCount()==idPerson){
+                            tele.setPerson(i);
+                        }
+                    }
                     idPhone++;
                     telephons.add(tele);
 
@@ -227,6 +230,7 @@ public class Main {
     }
 
     private static void showTelephone() {
+
         for (telephon i : telephons) {
                 System.out.println(i);
             }
