@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         add();
     }
@@ -162,8 +163,8 @@ public class Main {
 
                     System.out.println("add person id: ");
                     int idPerson = sc.nextInt();
-                    for(Person i : person){
-                        if(i.getCount()==idPerson){
+                    for (Person i : person) {
+                        if (i.getCount() == idPerson) {
                             tele.setPerson(i);
                         }
                     }
@@ -185,7 +186,7 @@ public class Main {
                 case 9:
                     t = false;
                     break;
-                case 10 :
+                case 10:
                     showPerson();
                     break;
             }
@@ -197,7 +198,7 @@ public class Main {
     private static bookPhone.telephone.telephon addTele2() {
         System.out.println("id phone user: ");
         int idPhoneUser = sc.nextInt();
-        telephon telephone =addTelephone(idPhoneUser);
+        telephon telephone = addTelephone(idPhoneUser);
         return telephone;
     }
 
@@ -232,12 +233,12 @@ public class Main {
     private static void showTelephone() {
 
         for (telephon i : telephons) {
-                System.out.println(i);
-            }
+            System.out.println(i);
         }
+    }
 
-    public static telephon addTelephone(int idPhone){
-        for(telephon i : telephons){
+    public static telephon addTelephone(int idPhone) {
+        for (telephon i : telephons) {
             if (i.getIdPhone() == idPhone) {
                 return i;
             }

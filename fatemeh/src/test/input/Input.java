@@ -1,12 +1,17 @@
 package test.input;
 
+import test.Repository;
+
 import java.util.Scanner;
 
-public class Input {
+public class Input extends Repository {
 
     private static Scanner scanner;
 
-    private Input(){}
+    private Input() throws Exception{
+        super();
+
+    }
 
     public static Scanner getScanner(){
         if (scanner == null){
@@ -17,3 +22,5 @@ public class Input {
     }
 
 }
+
+

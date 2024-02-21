@@ -1,10 +1,20 @@
 package test.address;
 
-import com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer;
+import test.Repository;
 import test.input.Input;
 
-public class AddressSer {
+public class AddressSer extends Repository {
     private static int id = 1;
+
+    public AddressSer() throws Exception {
+    }
+
+    public void registerAddress(AddressSer addressSer) throws Exception{
+        AddressDao addressDao = new AddressDao();
+        addressDao.insert();
+        addressDao.update();
+    }
+
     public static void getMenuAddress(){
         boolean t = true;
         while (t){
@@ -20,6 +30,8 @@ public class AddressSer {
                     System.out.println("enter zipCode");
                     address.setZipCode(Input.getScanner().nextInt());
                     AddressDao.getListAddress().add(address);
+
+
                     id++;
                     break;
                 case 2:

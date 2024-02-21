@@ -2,6 +2,7 @@ package bookPhone.person;
 
 import bookPhone.address.Adress;
 import bookPhone.telephone.telephon;
+import test.person.Gender;
 
 public abstract class Person {
 
@@ -9,6 +10,17 @@ public abstract class Person {
     private  String name;
     private String family;
     private Adress adress;
+    private Gender gender;
+
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
 
     @Override
     public String toString() {
@@ -17,6 +29,7 @@ public abstract class Person {
                 ", name='" + name + '\'' +
                 ", family='" + family + '\'' +
                 ", adress=" + adress +
+                ", gender=" + gender +
                 '}';
     }
 
@@ -55,5 +68,7 @@ public abstract class Person {
 
         count ++;
     }
+
+
 
 }
