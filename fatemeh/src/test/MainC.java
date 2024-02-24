@@ -23,7 +23,7 @@ public class MainC extends Repository{
             int select = Input.getScanner().nextInt();
             switch (select){
                 case 1:
-                    //AddressSer.getMenuAddress();
+                    AddressSer.getMenuAddress();
                     AddressSer addressSer = new AddressSer();
                     addressSer.registerAddress(addressSer);
                     break;
@@ -33,10 +33,10 @@ public class MainC extends Repository{
                     phoneSer.getPhone();
                     break;
                 case 3:
-                    //PersonSer.menuPerson();
+                    PersonSer.menuPerson();
                     PersonSer personSer = new PersonSer();
                     personSer.getPerson();
-                    ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
+                   // ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
                   /*  for (PersonEn person : personEnArrayList){
                         System.out.println(person.getId());
                         System.out.println(person.getFirstname());

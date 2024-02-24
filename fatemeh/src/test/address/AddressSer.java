@@ -11,11 +11,13 @@ public class AddressSer extends Repository {
     public AddressSer() throws Exception {
     }
 
-    public ArrayList<AddressEn> registerAddress(AddressSer addressSer) throws Exception{
-        ArrayList<AddressEn> addressEnArrayList = new ArrayList<>();
+    public void registerAddress(AddressSer addressSer) throws Exception{
         AddressDao addressDao = new AddressDao();
-        addressEnArrayList = addressDao.select();
-        return addressEnArrayList;
+        addressDao.insert();
+        addressDao.update();
+        addressDao.delete(id);
+        addressDao.select();
+        ArrayList<AddressEn> addressSerArrayList = addressDao.select();
     }
 
     public static void getMenuAddress(){

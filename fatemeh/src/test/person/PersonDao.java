@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class PersonDao extends Repository {
     Scanner sc = new Scanner(System.in);
-    public PreparedStatement preparedStatement;
+    private PreparedStatement preparedStatement;
     private static PersonEn personEn;
 
     PersonDao() throws Exception{
@@ -25,23 +25,23 @@ public class PersonDao extends Repository {
     }
 
     public void insert() throws Exception{
-        preparedStatement = connection.prepareStatement("insert into person set (id , first name , last name ,address )values (? ,? ,? ,?) ");
+        preparedStatement = connection.prepareStatement("insert into person (id , firstname , lastname) values (? ,? ,?) ");
         System.out.println("enter id: ");
         preparedStatement.setInt(1 , sc.nextInt());
         System.out.println("enter first name: ");
         preparedStatement.setString(2,sc.next());
         System.out.println("enter last name: ");
         preparedStatement.setString(3,sc.next());
-       /* System.out.println("enter address: ");
-        preparedStatement.setString(4,sc.next());*/
         preparedStatement.executeUpdate();
-        preparedStatement.close();
-        connection.close();
+       /* connection.close();
+        preparedStatement.close();*/
+
+
     }
 
 
     public void update() throws Exception{
-        preparedStatement = connection.prepareStatement("update person first name = ? ,last name = ? , address = ? where id = ?");
+        preparedStatement = connection.prepareStatement("update person set (firstname = ? ,lastname = ? , address =?)  where id = ?");
         System.out.println("update first name: ");
         preparedStatement.setString(1, sc.next());
         System.out.println("update last name: ");
@@ -51,8 +51,9 @@ public class PersonDao extends Repository {
         System.out.println("id: ");
         preparedStatement.setLong(4, sc.nextInt());
         preparedStatement.executeUpdate();
-        preparedStatement.close();
         connection.close();
+        preparedStatement.close();
+
     }
 
 
@@ -60,8 +61,9 @@ public class PersonDao extends Repository {
         preparedStatement = connection.prepareStatement("delete from person where id = ?");
         preparedStatement.setInt(1 , sc.nextInt());
         preparedStatement.executeUpdate();
-        preparedStatement.close();
         connection.close();
+        preparedStatement.close();
+
     }
 
     public PersonEn select() throws Exception{

@@ -45,7 +45,7 @@ public class AddressDao extends Repository {
     public void update() throws Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/practice" , "root" , "123456");
-        preparedStatement = connection.prepareStatement("update address set street = ?, zip code=?  where id = ?");
+        preparedStatement = connection.prepareStatement("update address set street = ?, zipcode=?  where id = ?");
         System.out.println("update street :");
         preparedStatement.setString( 1 ,scanner.next());
         System.out.println("update zip code: ");
@@ -53,8 +53,8 @@ public class AddressDao extends Repository {
         System.out.println("update id: ");
         preparedStatement.setInt(3, scanner.nextInt());
         preparedStatement.executeUpdate();
-        connection.close();
-        preparedStatement.close();
+    /*    connection.close();
+        preparedStatement.close();*/
     }
 
     public void delete(int id) throws Exception{

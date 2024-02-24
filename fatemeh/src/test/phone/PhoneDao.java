@@ -19,39 +19,6 @@ public class PhoneDao extends Repository {
 
     }
 
-    public void insert() throws Exception{
-        preparedStatement = connection.prepareStatement("insert into phone set(id , phone number) values (? ,?)");
-        System.out.println("enter id");
-        preparedStatement.setInt(1, scanner.nextInt());
-        System.out.println("enter phone number");
-        preparedStatement.setInt(2 , scanner.nextInt());
-        preparedStatement.executeUpdate();
-        preparedStatement.close();
-        connection.close();
-    }
-
-
-    public void update() throws Exception{
-        preparedStatement = connection.prepareStatement("update phone set phone number=? where id = ? ");
-        System.out.println("update phone number");
-        preparedStatement.setInt(1,scanner.nextInt());
-        System.out.println("id update");
-        preparedStatement.setInt(2, scanner.nextInt());
-        preparedStatement.executeUpdate();
-        preparedStatement.close();
-        connection.close();
-    }
-
-
-    public void delete(int id) throws Exception{
-        preparedStatement = connection.prepareStatement("delete from phone where id=?");
-        System.out.println("id");
-        preparedStatement.setInt(1 , scanner.nextInt());
-        preparedStatement.executeUpdate();
-        preparedStatement.close();
-        connection.close();
-    }
-
     public ArrayList<PhoneEn> select() throws Exception{
         preparedStatement= connection.prepareStatement("select * from phone");
         ResultSet resultSet= preparedStatement.executeQuery();
@@ -65,6 +32,41 @@ public class PhoneDao extends Repository {
         }
         return phoneEns;
     }
+
+
+    public void insert() throws Exception{
+        preparedStatement = connection.prepareStatement("insert into phone (id , phoneNumber) values (? ,?)");
+        System.out.println("enter id");
+        preparedStatement.setInt(1, scanner.nextInt());
+        System.out.println("enter phone number");
+        preparedStatement.setInt(2 , scanner.nextInt());
+        preparedStatement.executeUpdate();
+        /*preparedStatement.close();
+        connection.close();*/
+    }
+
+
+    public void update() throws Exception{
+        preparedStatement = connection.prepareStatement("update phone set phonenumber=? where id = ? ");
+        System.out.println("update phone number");
+        preparedStatement.setInt(1,scanner.nextInt());
+        System.out.println("id update");
+        preparedStatement.setInt(2, scanner.nextInt());
+        preparedStatement.executeUpdate();
+      /*  preparedStatement.close();
+        connection.close();*/
+    }
+
+
+    public void delete(int id) throws Exception{
+        preparedStatement = connection.prepareStatement("delete from phone where id=?");
+        System.out.println("id");
+        preparedStatement.setInt(1 , scanner.nextInt());
+        preparedStatement.executeUpdate();
+     /*   preparedStatement.close();
+        connection.close();*/
+    }
+
 
 
  /*   public static PhoneEn getPhone(){

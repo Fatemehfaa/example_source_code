@@ -12,14 +12,13 @@ public class PhoneSer extends Repository {
     public PhoneSer() throws Exception {
     }
 
-    public ArrayList<PhoneDao> getPhone() throws Exception{
+    public void getPhone() throws Exception{
         ArrayList<PhoneDao> ArrayPhoneDaos = new ArrayList<>();
         PhoneDao phoneDao = new PhoneDao();
          phoneDao.insert();
         phoneDao.update();
         phoneDao.delete(id);
         phoneDao.select();
-        return ArrayPhoneDaos;
     }
 
     public static void getMenuphone() {
