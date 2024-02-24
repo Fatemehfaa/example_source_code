@@ -2,7 +2,9 @@ package test.person;
 
 import test.address.AddressEn;
 
-public class PersonEn {
+import java.util.ArrayList;
+
+public class PersonEn extends ArrayList<PersonDao> {
 
     private int id;
 
@@ -69,4 +71,6 @@ public class PersonEn {
                 '}';
     }
 
+    public void setAddress(String address) {
+    }
 }

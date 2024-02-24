@@ -3,6 +3,8 @@ package test.address;
 import test.Repository;
 import test.input.Input;
 
+import java.util.ArrayList;
+
 public class AddressSer extends Repository {
     private static int id = 1;
 
@@ -13,6 +15,9 @@ public class AddressSer extends Repository {
         AddressDao addressDao = new AddressDao();
         addressDao.insert();
         addressDao.update();
+        addressDao.delete(id);
+        addressDao.select();
+        ArrayList<AddressEn> addressSerArrayList = addressDao.select();
     }
 
     public static void getMenuAddress(){

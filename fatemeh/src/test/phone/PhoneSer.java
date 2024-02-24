@@ -1,9 +1,26 @@
 package test.phone;
 
+import test.Repository;
 import test.input.Input;
 
-public class PhoneSer {
+import java.util.ArrayList;
 
+public class PhoneSer extends Repository {
+    private static int id = 1;
+
+
+    public PhoneSer() throws Exception {
+    }
+
+    public ArrayList<PhoneDao> getPhone() throws Exception{
+        ArrayList<PhoneDao> ArrayPhoneDaos = new ArrayList<>();
+        PhoneDao phoneDao = new PhoneDao();
+         phoneDao.insert();
+        phoneDao.update();
+        phoneDao.delete(id);
+        phoneDao.select();
+        return ArrayPhoneDaos;
+    }
 
     public static void getMenuphone() {
         boolean t = true;
@@ -16,7 +33,7 @@ public class PhoneSer {
                     PhoneEn phone = new PhoneEn();
                     System.out.println("enter your phone number:");
                     phone.setPhoneNumber(Input.getScanner().nextInt());
-                    PhoneEn phoneEn = PhoneDao.getPhone();
+                    //PhoneEn phoneEn = PhoneDao.getPhone();
                     break;
                 case 2:
                     PhoneType mobile = PhoneType.MOBILE;

@@ -1,11 +1,14 @@
 package test;
 
+import test.address.AddressEn;
 import test.address.AddressSer;
 import test.input.Input;
+import test.person.PersonDao;
+import test.person.PersonEn;
 import test.person.PersonSer;
 import test.phone.PhoneSer;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class MainC extends Repository{
     public MainC() throws Exception {
@@ -15,7 +18,7 @@ public class MainC extends Repository{
         boolean t = true;
 
         while (t){
-            System.out.println("1.address \t 2.person \t 3.phone \t\t 4.exit");
+            System.out.println("1.address \t 2.phone \t 3.person \t\t 4.exit");
             System.out.println("select one number :");
             int select = Input.getScanner().nextInt();
             switch (select){
@@ -25,17 +28,28 @@ public class MainC extends Repository{
                     addressSer.registerAddress(addressSer);
                     break;
                 case 2 :
-                    PhoneSer.getMenuphone();
+                    //PhoneSer.getMenuphone();
+                    PhoneSer phoneSer = new PhoneSer();
+                    phoneSer.getPhone();
                     break;
                 case 3:
                     //PersonSer.menuPerson();
                     PersonSer personSer = new PersonSer();
-                    personSer.getPerson(personSer);
+                    personSer.getPerson();
+                    ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
+                  /*  for (PersonEn person : personEnArrayList){
+                        System.out.println(person.getId());
+                        System.out.println(person.getFirstname());
+                        System.out.println(person.getLastname());
+                    }*/
+
 
                     break;
                 case 4:
                     t=false;
                     break;
+                default:
+                    System.out.println("nooo");
             }
         }
 
