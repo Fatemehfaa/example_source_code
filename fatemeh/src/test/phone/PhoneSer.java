@@ -5,7 +5,7 @@ import test.input.Input;
 
 import java.util.ArrayList;
 
-public class PhoneSer extends Repository {
+public class PhoneSer {
     private static int id = 1;
 
 

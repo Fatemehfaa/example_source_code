@@ -4,7 +4,7 @@ import test.Repository;
 
 import java.util.Scanner;
 
-public class Input extends Repository {
+public class Input  {
 
     private static Scanner scanner;
 

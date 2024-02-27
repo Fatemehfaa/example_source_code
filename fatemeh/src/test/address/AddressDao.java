@@ -1,6 +1,7 @@
 package test.address;
 
 import test.Repository;
+import test.input.Input;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,11 +13,10 @@ import java.util.Scanner;
 
 public class AddressDao extends Repository {
     private PreparedStatement preparedStatement;
-    Scanner scanner = new Scanner(System.in);
-
     private static List<AddressEn> listAddress;
 
-    AddressDao() throws Exception {
+    public AddressDao() throws Exception{
+
     }
 
     public static List<AddressEn> getListAddress(){
@@ -30,44 +30,42 @@ public class AddressDao extends Repository {
 
     public void insert() throws Exception{
 
-        preparedStatement = connection.prepareStatement("insert into address (id , street , zipcode) values (? ,? ,?)");
+        preparedStatement =Repository.getConnection().prepareStatement("insert into address (id , street , zipcode) values (? ,? ,?)");
         System.out.println("enter id: ");
-        preparedStatement.setInt(1 ,scanner.nextInt() );
+        preparedStatement.setInt(1 ,Input.getScanner().nextInt() );
         System.out.println("enter street: ");
-        preparedStatement.setString(2,scanner.next());
+        preparedStatement.setString(2,Input.getScanner().next());
         System.out.println("enter zip code: ");
-        preparedStatement.setInt(3 , scanner.nextInt());
+        preparedStatement.setInt(3 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
-        connection.close();
+        //connection.close();
         preparedStatement.close();
     }
 
     public void update() throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/practice" , "root" , "123456");
-        preparedStatement = connection.prepareStatement("update address set street = ?, zipcode=?  where id = ?");
+        preparedStatement = getConnection().prepareStatement("update address set street = ?, zipcode=?  where id = ?");
         System.out.println("update street :");
-        preparedStatement.setString( 1 ,scanner.next());
+        preparedStatement.setString( 1 , Input.getScanner().next());
         System.out.println("update zip code: ");
-        preparedStatement.setInt(2,scanner.nextInt());
+        preparedStatement.setInt(2,Input.getScanner().nextInt());
         System.out.println("update id: ");
-        preparedStatement.setInt(3, scanner.nextInt());
+        preparedStatement.setInt(3, Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
     /*    connection.close();
         preparedStatement.close();*/
     }
 
     public void delete(int id) throws Exception{
-        preparedStatement = connection.prepareStatement("delete from address where id =?");
+        preparedStatement = getConnection().prepareStatement("delete from address where id =?");
         System.out.println("id delete ");
-        preparedStatement.setInt(1 , scanner.nextInt());
+        preparedStatement.setInt(1 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
         preparedStatement.close();
-        connection.close();
+        //connection.close();
     }
 
     public  ArrayList<AddressEn> select() throws Exception{
-        preparedStatement = connection.prepareStatement("select * from address");
+        preparedStatement =getConnection().prepareStatement("select * from address");
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<AddressEn> address  = new ArrayList<>();
 

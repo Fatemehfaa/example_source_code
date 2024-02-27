@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class MainC extends Repository{
     public MainC() throws Exception {
+        super();
     }
 
     public static void main(String[] args) throws Exception {

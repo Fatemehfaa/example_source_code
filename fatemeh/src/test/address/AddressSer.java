@@ -5,7 +5,7 @@ import test.input.Input;
 
 import java.util.ArrayList;
 
-public class AddressSer extends Repository {
+public class AddressSer {
     private static int id = 1;
 
     public AddressSer() throws Exception {

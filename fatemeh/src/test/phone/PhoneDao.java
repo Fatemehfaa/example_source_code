@@ -2,6 +2,7 @@ package test.phone;
 
 import sun.dc.pr.PRError;
 import test.Repository;
+import test.input.Input;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,14 +14,12 @@ import java.util.Scanner;
 public class PhoneDao extends Repository {
     public PreparedStatement preparedStatement;
     private static PhoneEn phoneEn;
-    Scanner scanner = new Scanner(System.in);
-
     PhoneDao() throws Exception{
 
     }
 
     public ArrayList<PhoneEn> select() throws Exception{
-        preparedStatement= connection.prepareStatement("select * from phone");
+        preparedStatement=getConnection().prepareStatement("select * from phone");
         ResultSet resultSet= preparedStatement.executeQuery();
 
         ArrayList<PhoneEn> phoneEns = new ArrayList<>();
@@ -35,11 +34,11 @@ public class PhoneDao extends Repository {
 
 
     public void insert() throws Exception{
-        preparedStatement = connection.prepareStatement("insert into phone (id , phoneNumber) values (? ,?)");
+        preparedStatement = getConnection().prepareStatement("insert into phone (id , phoneNumber) values (? ,?)");
         System.out.println("enter id");
-        preparedStatement.setInt(1, scanner.nextInt());
+        preparedStatement.setInt(1, Input.getScanner().nextInt());
         System.out.println("enter phone number");
-        preparedStatement.setInt(2 , scanner.nextInt());
+        preparedStatement.setInt(2 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
         /*preparedStatement.close();
         connection.close();*/
@@ -47,11 +46,11 @@ public class PhoneDao extends Repository {
 
 
     public void update() throws Exception{
-        preparedStatement = connection.prepareStatement("update phone set phonenumber=? where id = ? ");
+        preparedStatement = getConnection().prepareStatement("update phone set phonenumber=? where id = ? ");
         System.out.println("update phone number");
-        preparedStatement.setInt(1,scanner.nextInt());
+        preparedStatement.setInt(1,Input.getScanner().nextInt());
         System.out.println("id update");
-        preparedStatement.setInt(2, scanner.nextInt());
+        preparedStatement.setInt(2,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
       /*  preparedStatement.close();
         connection.close();*/
@@ -59,9 +58,9 @@ public class PhoneDao extends Repository {
 
 
     public void delete(int id) throws Exception{
-        preparedStatement = connection.prepareStatement("delete from phone where id=?");
+        preparedStatement = getConnection().prepareStatement("delete from phone where id=?");
         System.out.println("id");
-        preparedStatement.setInt(1 , scanner.nextInt());
+        preparedStatement.setInt(1 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
      /*   preparedStatement.close();
         connection.close();*/

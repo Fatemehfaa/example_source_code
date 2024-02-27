@@ -5,7 +5,7 @@ import test.input.Input;
 
 import java.util.ArrayList;
 
-public class PersonSer extends Repository {
+public class PersonSer  {
     private static int id =1;
 
     public PersonSer() throws Exception {

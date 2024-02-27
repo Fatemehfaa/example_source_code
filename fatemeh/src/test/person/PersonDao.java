@@ -1,6 +1,7 @@
 package test.person;
 
 import test.Repository;
+import test.input.Input;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PersonDao extends Repository {
-    Scanner sc = new Scanner(System.in);
     private PreparedStatement preparedStatement;
     private static PersonEn personEn;
 
@@ -25,13 +25,13 @@ public class PersonDao extends Repository {
     }
 
     public void insert() throws Exception{
-        preparedStatement = connection.prepareStatement("insert into person (id , firstname , lastname) values (? ,? ,?) ");
+        preparedStatement = getConnection().prepareStatement("insert into person (id , firstname , lastname) values (? ,? ,?) ");
         System.out.println("enter id: ");
-        preparedStatement.setInt(1 , sc.nextInt());
+        preparedStatement.setInt(1 , Input.getScanner().nextInt());
         System.out.println("enter first name: ");
-        preparedStatement.setString(2,sc.next());
+        preparedStatement.setString(2,Input.getScanner().next());
         System.out.println("enter last name: ");
-        preparedStatement.setString(3,sc.next());
+        preparedStatement.setString(3,Input.getScanner().next());
         preparedStatement.executeUpdate();
        /* connection.close();
         preparedStatement.close();*/
@@ -41,34 +41,34 @@ public class PersonDao extends Repository {
 
 
     public void update() throws Exception{
-        preparedStatement = connection.prepareStatement("update person set (firstname = ? ,lastname = ? , address =?)  where id = ?");
+        preparedStatement = getConnection().prepareStatement("update person set (firstname = ? ,lastname = ? , address =?)  where id = ?");
         System.out.println("update first name: ");
-        preparedStatement.setString(1, sc.next());
+        preparedStatement.setString(1,Input.getScanner().next());
         System.out.println("update last name: ");
-        preparedStatement.setString(2, sc.next());
+        preparedStatement.setString(2,Input.getScanner().next());
         System.out.println("update address: ");
-        preparedStatement.setString(3, sc.next());
+        preparedStatement.setString(3,Input.getScanner().next());
         System.out.println("id: ");
-        preparedStatement.setLong(4, sc.nextInt());
+        preparedStatement.setLong(4,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
-        connection.close();
+        //connection.close();
         preparedStatement.close();
 
     }
 
 
     public void delete (int id) throws  Exception{
-        preparedStatement = connection.prepareStatement("delete from person where id = ?");
-        preparedStatement.setInt(1 , sc.nextInt());
+        preparedStatement = getConnection().prepareStatement("delete from person where id = ?");
+        preparedStatement.setInt(1 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
-        connection.close();
+        //connection.close();
         preparedStatement.close();
 
     }
 
     public PersonEn select() throws Exception{
 
-        preparedStatement = connection.prepareStatement("select * from person");
+        preparedStatement = getConnection().prepareStatement("select * from person");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         ArrayList<PersonEn> personEns = new ArrayList<>();
