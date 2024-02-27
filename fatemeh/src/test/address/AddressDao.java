@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressDao extends Repository {
-    private PreparedStatement preparedStatement;
+public class AddressDao  {
+    private static PreparedStatement preparedStatement;
     private static List<AddressEn> listAddress;
 
     public AddressDao() throws Exception{
@@ -28,11 +28,11 @@ public class AddressDao extends Repository {
     }
 
 
-    public void insert() throws Exception{
+    public static void insert(Integer id) throws Exception{
 
         preparedStatement =Repository.getConnection().prepareStatement("insert into address (id , street , zipcode) values (? ,? ,?)");
-        System.out.println("enter id: ");
-        preparedStatement.setInt(1 ,Input.getScanner().nextInt() );
+
+        preparedStatement.setInt(1 ,id);
         System.out.println("enter street: ");
         preparedStatement.setString(2,Input.getScanner().next());
         System.out.println("enter zip code: ");
@@ -42,8 +42,8 @@ public class AddressDao extends Repository {
         preparedStatement.close();
     }
 
-    public void update() throws Exception{
-        preparedStatement = getConnection().prepareStatement("update address set street = ?, zipcode=?  where id = ?");
+    public static void update() throws Exception{
+        preparedStatement = Repository.getConnection().prepareStatement("update address set street = ?, zipcode=?  where id = ?");
         System.out.println("update street :");
         preparedStatement.setString( 1 , Input.getScanner().next());
         System.out.println("update zip code: ");
@@ -55,8 +55,8 @@ public class AddressDao extends Repository {
         preparedStatement.close();*/
     }
 
-    public void delete(int id) throws Exception{
-        preparedStatement = getConnection().prepareStatement("delete from address where id =?");
+    public static void delete(Integer id) throws Exception{
+        preparedStatement = Repository.getConnection().prepareStatement("delete from address where id =?");
         System.out.println("id delete ");
         preparedStatement.setInt(1 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
@@ -64,8 +64,21 @@ public class AddressDao extends Repository {
         //connection.close();
     }
 
+/*    public static void count(int id) throws Exception{
+        preparedStatement = Repository.getConnection().prepareStatement("select count(*) from address where id =id");
+        try {
+            AddressSer addressSer = new AddressSer();
+            ArrayList<AddressEn> addressEnArrayList = addressSer.getAddress();
+            for (AddressEn address : addressEnArrayList) {
+                System.out.println(address.getId());
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }*/
+
     public  ArrayList<AddressEn> select() throws Exception{
-        preparedStatement =getConnection().prepareStatement("select * from address");
+        preparedStatement =Repository.getConnection().prepareStatement("select * from address");
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<AddressEn> address  = new ArrayList<>();
 

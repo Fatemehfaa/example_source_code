@@ -11,15 +11,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PhoneDao extends Repository {
+public class PhoneDao {
+
     public PreparedStatement preparedStatement;
     private static PhoneEn phoneEn;
-    PhoneDao() throws Exception{
-
-    }
 
     public ArrayList<PhoneEn> select() throws Exception{
-        preparedStatement=getConnection().prepareStatement("select * from phone");
+        preparedStatement=Repository.getConnection().prepareStatement("select * from phone");
         ResultSet resultSet= preparedStatement.executeQuery();
 
         ArrayList<PhoneEn> phoneEns = new ArrayList<>();
@@ -34,7 +32,7 @@ public class PhoneDao extends Repository {
 
 
     public void insert() throws Exception{
-        preparedStatement = getConnection().prepareStatement("insert into phone (id , phoneNumber) values (? ,?)");
+        preparedStatement = Repository.getConnection().prepareStatement("insert into phone (id , phoneNumber) values (? ,?)");
         System.out.println("enter id");
         preparedStatement.setInt(1, Input.getScanner().nextInt());
         System.out.println("enter phone number");
@@ -46,7 +44,7 @@ public class PhoneDao extends Repository {
 
 
     public void update() throws Exception{
-        preparedStatement = getConnection().prepareStatement("update phone set phonenumber=? where id = ? ");
+        preparedStatement = Repository.getConnection().prepareStatement("update phone set phonenumber=? where id = ? ");
         System.out.println("update phone number");
         preparedStatement.setInt(1,Input.getScanner().nextInt());
         System.out.println("id update");
@@ -58,7 +56,7 @@ public class PhoneDao extends Repository {
 
 
     public void delete(int id) throws Exception{
-        preparedStatement = getConnection().prepareStatement("delete from phone where id=?");
+        preparedStatement = Repository.getConnection().prepareStatement("delete from phone where id=?");
         System.out.println("id");
         preparedStatement.setInt(1 ,Input.getScanner().nextInt());
         preparedStatement.executeUpdate();

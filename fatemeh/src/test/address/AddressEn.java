@@ -1,7 +1,11 @@
 package test.address;
 
 public class AddressEn {
-    private int id ;
+    private int id=1 ;
+
+    public AddressEn() {
+        id++;
+    }
 
     private String street;
     private int zipCode;

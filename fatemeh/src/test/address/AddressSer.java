@@ -11,49 +11,71 @@ public class AddressSer {
     public AddressSer() throws Exception {
     }
 
-    public void registerAddress(AddressSer addressSer) throws Exception{
-        AddressDao addressDao = new AddressDao();
-        addressDao.insert();
-        addressDao.update();
-        addressDao.delete(id);
-        addressDao.select();
-        ArrayList<AddressEn> addressSerArrayList = addressDao.select();
+    public ArrayList<AddressEn> getAddress() {
+        ArrayList<AddressEn> addressEnArrayList = new ArrayList<>();
+        try {
+            AddressDao addressDao = new AddressDao();
+            addressEnArrayList = addressDao.select();
+
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+
+
+        return addressEnArrayList;
     }
 
-    public static void getMenuAddress(){
+    public static void getMenuAddress() {
         boolean t = true;
-        while (t){
-            System.out.println("1.add Address \t 2.show all Address \t 3.find Address By ID \t 4.back");
+        while (t) {
+            System.out.println("1.add Address \t 2.update address \t 3.delete address \t 4.show all Address \t 5.back");
             System.out.println("select one number: ");
-            int select = Input.getScanner().nextInt();
-            switch (select){
+            int select1 = Input.getScanner().nextInt();
+            switch (select1) {
                 case 1:
-                    AddressEn address = new AddressEn();
-                    address.setId(id);
-                    System.out.println("enter street :");
-                    address.setStreet(Input.getScanner().next());
-                    System.out.println("enter zipCode");
-                    address.setZipCode(Input.getScanner().nextInt());
-                    AddressDao.getListAddress().add(address);
-
-
+                    try {
+                        AddressDao.insert(id);
+                        //AddressDao.count(id);
+                    }catch (Exception ex){
+                        System.out.println(ex.getMessage());
+                    }
                     id++;
                     break;
                 case 2:
-                    for (AddressEn addressEn:AddressDao.getListAddress()) {
-                        System.out.println(addressEn);
+                    try {
+                        AddressDao.update();
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 3:
-                    System.out.println("enter id :");
+                    try{
+                        AddressDao.delete(id);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    /*System.out.println("enter id :");
                     int addressId = Input.getScanner().nextInt();
-                    for (AddressEn addressEn:AddressDao.getListAddress()) {
+                    for (AddressEn addressEn : AddressDao.getListAddress()) {
                         if (addressEn.getId() == addressId)
                             System.out.println(addressEn);
-                    }
+                    }*/
                     break;
                 case 4:
-                    t=false;
+                    try {
+                        AddressSer addressSer = new AddressSer();
+                        ArrayList<AddressEn> addressEnArrayList = addressSer.getAddress();
+                        for (AddressEn addressEn : addressEnArrayList) {
+                            System.out.println(addressEn.getId());
+                            System.out.println(addressEn.getStreet());
+                            System.out.println(addressEn.getZipCode());
+                        }
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 5:
+                    t = false;
                     break;
             }
         }

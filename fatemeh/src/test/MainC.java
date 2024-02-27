@@ -10,34 +10,31 @@ import test.phone.PhoneSer;
 
 import java.util.ArrayList;
 
-public class MainC extends Repository{
-    public MainC() throws Exception {
-        super();
-    }
+public class MainC {
 
     public static void main(String[] args) throws Exception {
         boolean t = true;
 
-        while (t){
-            System.out.println("1.address \t 2.phone \t 3.person \t\t 4.exit");
+        while (t) {
+            System.out.println("1.address \t 2.phone \t 3.person \t 4.exit");
             System.out.println("select one number :");
-            int select = Input.getScanner().nextInt();
-            switch (select){
+            int select1 = Input.getScanner().nextInt();
+            switch (select1) {
                 case 1:
                     AddressSer.getMenuAddress();
-                    AddressSer addressSer = new AddressSer();
-                    addressSer.registerAddress(addressSer);
                     break;
-                case 2 :
+                case 2:
                     //PhoneSer.getMenuphone();
                     PhoneSer phoneSer = new PhoneSer();
                     phoneSer.getPhone();
                     break;
                 case 3:
-                    PersonSer.menuPerson();
+                   /* PersonSer.menuPerson();
                     PersonSer personSer = new PersonSer();
-                    personSer.getPerson();
-                   // ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
+                    personSer.getPerson();*/
+
+
+                    // ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
                   /*  for (PersonEn person : personEnArrayList){
                         System.out.println(person.getId());
                         System.out.println(person.getFirstname());
@@ -47,7 +44,7 @@ public class MainC extends Repository{
 
                     break;
                 case 4:
-                    t=false;
+                    t = false;
                     break;
                 default:
                     System.out.println("nooo");
@@ -56,3 +53,4 @@ public class MainC extends Repository{
 
     }
 }
+

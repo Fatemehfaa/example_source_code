@@ -32,7 +32,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ParameterMetaData;
 
-public class Repository {
+public final class Repository {
     private static Connection connection ;
 /*  private Repository() throws Exception {
 
@@ -50,10 +50,7 @@ public class Repository {
         }
     }
 
-    public Repository() {
-          if(connection == null){
-
-          }
+    private Repository() {
     }
 
     public static Connection getConnection() {
