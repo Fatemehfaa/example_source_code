@@ -13,7 +13,7 @@ public class PersonSer  {
     public PersonSer() {
     }
 
-    public ArrayList<PersonEn> getPerson(){
+    public static ArrayList<PersonEn> getPerson(){
         ArrayList<PersonEn>personEnArrayList = new ArrayList<>();
         try {
             PersonDao personDao1 = new PersonDao();

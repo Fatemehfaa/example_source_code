@@ -24,9 +24,7 @@ public class MainC {
                     AddressSer.getMenuAddress();
                     break;
                 case 2:
-                    //PhoneSer.getMenuphone();
-                    PhoneSer phoneSer = new PhoneSer();
-                    phoneSer.getPhone();
+                    PhoneSer.getMenuphone();
                     break;
                 case 3:
                     PersonSer.menuPerson();

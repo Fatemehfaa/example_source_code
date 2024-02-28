@@ -9,42 +9,63 @@ public class PhoneSer {
     private static int id = 1;
 
 
-    public PhoneSer() throws Exception {
+    public PhoneSer() {
     }
 
-    public void getPhone() throws Exception{
-        ArrayList<PhoneDao> ArrayPhoneDaos = new ArrayList<>();
-        PhoneDao phoneDao = new PhoneDao();
-         phoneDao.insert();
-        phoneDao.update();
-        phoneDao.delete(id);
-        phoneDao.select();
+    public static ArrayList<PhoneEn>  getPhone(){
+        ArrayList<PhoneEn> phoneEnArrayList= new ArrayList<>();
+        try{
+            PhoneDao phoneDao = new PhoneDao();
+            phoneEnArrayList = phoneDao.select();
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+       return phoneEnArrayList;
     }
 
     public static void getMenuphone() {
         boolean t = true;
         while (t) {
-            System.out.println("1.add phone \t 2.add type phone \t 3.show phone \t 4.exist");
+            System.out.println("1.add phone \t 2.update phone \t 3.delete phone \t 4.show phone \t 5.exist");
             System.out.println("select one number :");
             int select1 = Input.getScanner().nextInt();
             switch (select1){
                 case 1 :
-                    PhoneEn phone = new PhoneEn();
-                    System.out.println("enter your phone number:");
-                    phone.setPhoneNumber(Input.getScanner().nextInt());
-                    //PhoneEn phoneEn = PhoneDao.getPhone();
-                    break;
-                case 2:
-                    PhoneType mobile = PhoneType.MOBILE;
-                    PhoneType phone1 = PhoneType.PHONE;
-                    System.out.println("enter type phone:");
-                    for (PhoneType person : PhoneType.values()) {
-                        System.out.println(person);
+                    try{
+                        PhoneDao.insert();
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
                     }
                     break;
-                case 3:
+                case 2:
+                    try{
+                        PhoneDao.update();
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
 
+                    break;
+                case 3:
+                    try{
+                        PhoneDao.delete(id);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
                 case 4 :
+                    try{
+                        PhoneSer phoneSer = new PhoneSer();
+                        ArrayList<PhoneEn> phoneEnArrayList = phoneSer.getPhone();
+                        for(PhoneEn phoneEn:phoneEnArrayList){
+                            System.out.println(phoneEn.getPhoneNumber());
+                            System.out.println(phoneEn.getPhoneType());
+                        }
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 5 :
                     t = false;
                     break;
 

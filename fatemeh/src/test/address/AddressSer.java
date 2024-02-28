@@ -11,7 +11,7 @@ public class AddressSer {
     public AddressSer() throws Exception {
     }
 
-    public ArrayList<AddressEn> getAddress() {
+    public static ArrayList<AddressEn> getAddress() {
         ArrayList<AddressEn> addressEnArrayList = new ArrayList<>();
         try {
             AddressDao addressDao = new AddressDao();
