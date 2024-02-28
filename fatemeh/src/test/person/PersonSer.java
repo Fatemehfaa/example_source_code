@@ -10,14 +10,14 @@ import java.util.ArrayList;
 public class PersonSer  {
     private static int id =1;
 
-    public PersonSer() throws Exception {
+    public PersonSer() {
     }
 
     public ArrayList<PersonEn> getPerson(){
         ArrayList<PersonEn>personEnArrayList = new ArrayList<>();
         try {
             PersonDao personDao1 = new PersonDao();
-            //personEnArrayList = personDao1.select();
+            personEnArrayList = personDao1.select();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -56,6 +56,13 @@ public class PersonSer  {
                 case 4:
                     try {
                         PersonSer personSer = new PersonSer();
+                        ArrayList<PersonEn> personEnArrayList=personSer.getPerson();
+                        for(PersonEn personEn:personEnArrayList){
+                            System.out.println(personEn.getId());
+                            System.out.println(personEn.getFirstname());
+                            System.out.println(personEn.getLastname());
+                            System.out.println(personEn.getAddress());
+                        }
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }

@@ -29,19 +29,7 @@ public class MainC {
                     phoneSer.getPhone();
                     break;
                 case 3:
-                   /* PersonSer.menuPerson();
-                    PersonSer personSer = new PersonSer();
-                    personSer.getPerson();*/
-
-
-                    // ArrayList<PersonDao> personEnArrayList = personSer.getPerson();
-                  /*  for (PersonEn person : personEnArrayList){
-                        System.out.println(person.getId());
-                        System.out.println(person.getFirstname());
-                        System.out.println(person.getLastname());
-                    }*/
-
-
+                    PersonSer.menuPerson();
                     break;
                 case 4:
                     t = false;
