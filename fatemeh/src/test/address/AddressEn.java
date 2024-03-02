@@ -24,6 +24,8 @@ public class AddressEn {
     }
 
     public void setStreet(String street) {
+        if (street.length()<2)
+            throw new IllegalArgumentException("street name not valid .. ");
         this.street = street;
     }
 
@@ -32,6 +34,7 @@ public class AddressEn {
     }
 
     public void setZipCode(int zipCode) {
+
         this.zipCode = zipCode;
     }
 

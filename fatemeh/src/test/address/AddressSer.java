@@ -34,8 +34,13 @@ public class AddressSer {
             switch (select1) {
                 case 1:
                     try {
-                        AddressDao.insert(id);
-                        //AddressDao.count(id);
+                        AddressEn addressEn = new AddressEn();
+                        addressEn.setId(id);
+                        System.out.println("enter street: ");
+                        addressEn.setStreet(Input.getScanner().next());
+                        System.out.println("enter zip code: ");
+                        addressEn.setZipCode(Input.getScanner().nextInt());
+                        AddressDao.insert(addressEn);
                     }catch (Exception ex){
                         System.out.println(ex.getMessage());
                     }
@@ -65,10 +70,10 @@ public class AddressSer {
                     try {
                         AddressSer addressSer = new AddressSer();
                         ArrayList<AddressEn> addressEnArrayList = addressSer.getAddress();
-                        for (AddressEn addressEn : addressEnArrayList) {
-                            System.out.println(addressEn.getId());
-                            System.out.println(addressEn.getStreet());
-                            System.out.println(addressEn.getZipCode());
+                        for (AddressEn addressEn1 : addressEnArrayList) {
+                            System.out.println(addressEn1.getId());
+                            System.out.println(addressEn1.getStreet());
+                            System.out.println(addressEn1.getZipCode());
                         }
                     }catch(Exception e){
                         System.out.println(e.getMessage());

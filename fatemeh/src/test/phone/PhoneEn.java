@@ -5,8 +5,10 @@ import test.person.PersonEn;
 public class PhoneEn {
 
     private int id;
-    private int phoneNumber;
+    private String phoneNumber;
     private PhoneType phoneType;
+
+    private PersonEn personEn;
 
     public int getId() {
         return id;
@@ -27,20 +29,24 @@ public class PhoneEn {
         return this;
     }
 
+    public PersonEn getPersonEn() {
+        return personEn;
+    }
+
+    public PhoneEn setPersonEn(PersonEn personEn) {
+        this.personEn = personEn;
+        return this;
+    }
+
     private PersonEn person;
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public void setPhoneType(PhoneType phoneType) {
-        this.phoneType = phoneType;
-    }
-
     public PhoneType getPhoneType() {
         return phoneType;
     }

@@ -2,6 +2,8 @@ package test.phone;
 
 import test.Repository;
 import test.input.Input;
+import test.person.PersonDao;
+import test.person.PersonEn;
 
 import java.util.ArrayList;
 
@@ -33,7 +35,40 @@ public class PhoneSer {
             switch (select1){
                 case 1 :
                     try{
-                        PhoneDao.insert();
+                        PhoneEn phone = new PhoneEn();
+
+                        phone.setId(PhoneDao.getCountIdPhone()+1);
+                        System.out.println("enter phone number (pattern : 09********* )");
+                        String phoneNumber = Input.getScanner().next();
+
+                        System.out.println("enter phone type \n MOBILE \n PHONE: ");
+                        String phoneType = Input.getScanner().next();
+
+                        if (phoneNumber==null || phoneType == null)
+                            throw new RuntimeException("phone number or phone type is null ... ");
+
+                        if (phoneType.equalsIgnoreCase(PhoneType.PHONE.name())){
+                            phone.setPhoneType(phoneType);
+                            int length = phoneNumber.length();
+                            if (length==8 || length==4 || length==3)
+                                phone.setPhoneNumber(phoneNumber);
+                            else
+                                throw new RuntimeException("phone number is not valid .... ");
+                        } else if (phoneType.equalsIgnoreCase(PhoneType.MOBILE.name())){
+                            phone.setPhoneType(phoneType);
+                            int length = phoneNumber.length();
+                            String[] split = phoneNumber.split("");
+                            if (length == 11  && split[0].equals("0") && split[1].equals("9"))
+                                phone.setPhoneNumber(phoneNumber);
+                            else
+                                throw new RuntimeException("phone number is not valid .... ");
+                        }
+
+                        System.out.println("enter person id: ");
+                        PersonEn person = PersonDao.getByIdPerson(Input.getScanner().nextInt());
+                        phone.setPersonEn(person);
+
+                        PhoneDao.insert(phone);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }
@@ -58,8 +93,9 @@ public class PhoneSer {
                         PhoneSer phoneSer = new PhoneSer();
                         ArrayList<PhoneEn> phoneEnArrayList = phoneSer.getPhone();
                         for(PhoneEn phoneEn:phoneEnArrayList){
+                            System.out.println(phoneEn.getId());
                             System.out.println(phoneEn.getPhoneNumber());
-                            System.out.println(phoneEn.getPhoneType());
+                            //System.out.println(phoneEn.getPhoneType());
                         }
                     }catch (Exception e){
                         System.out.println(e.getMessage());

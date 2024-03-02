@@ -36,6 +36,13 @@ public class PersonEn extends ArrayList<PersonDao> {
     }
 
     public void setFirstname(String firstname) {
+        if (firstname.length()<3){
+            try {
+                throw new IllegalAccessException("first name not valid");
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
         this.firstname = firstname;
     }
 

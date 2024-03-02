@@ -28,15 +28,12 @@ public class AddressDao  {
     }
 
 
-    public static void insert(Integer id) throws Exception{
+    public static void insert(AddressEn addressEn) throws Exception{
 
         preparedStatement =Repository.getConnection().prepareStatement("insert into address (id , street , zipcode) values (? ,? ,?)");
-
-        preparedStatement.setInt(1 ,id);
-        System.out.println("enter street: ");
-        preparedStatement.setString(2,Input.getScanner().next());
-        System.out.println("enter zip code: ");
-        preparedStatement.setInt(3 ,Input.getScanner().nextInt());
+        preparedStatement.setInt(1 ,addressEn.getId());
+        preparedStatement.setString(2,addressEn.getStreet());
+        preparedStatement.setInt(3 ,addressEn.getZipCode());
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();
