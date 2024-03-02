@@ -8,7 +8,7 @@ import test.input.Input;
 import java.util.ArrayList;
 
 public class PersonSer  {
-    private static int id =1;
+    private static int id=1;
 
     public PersonSer() {
     }
@@ -38,6 +38,7 @@ public class PersonSer  {
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }
+                    id++;
                     break;
                 case 2:
                     try {

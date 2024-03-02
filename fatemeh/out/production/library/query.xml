@@ -1,0 +1,47 @@
+create table ADDRESS(ID INT not null auto_increment  ,STREET VARCHAR(20) , ZIPCODE INT ,primary key (ID));
+
+        CREATE TABLE person (`id` INT NOT NULL auto_increment,`firstname` VARCHAR(255) NULL,`lastname` VARCHAR(255) NULL,`gender` VARCHAR(255) NULL,
+        `address_id` INT NULL, PRIMARY KEY (`id`),UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+        INDEX `address_id_fk` (`address_id`) VISIBLE,
+        CONSTRAINT `address_id_fk` FOREIGN KEY (`address_id`)
+        REFERENCES `address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+        ENGINE = InnoDB
+        DEFAULT CHARACTER SET = utf8;
+
+        create table phone(id int not null auto_increment, phoneNumber int,phoneType varchar(20),`person_id` INT NULL,primary key (id),
+        UNIQUE INDEX `id_UNIQUE` (`id`) VISIBLE,INDEX `person_id_fk` (`person_id`) VISIBLE, CONSTRAINT `person_id_fk` FOREIGN KEY (`person_id`)
+        REFERENCES `person` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION);
+
+        drop table ADDRESS;
+        drop table person;
+        drop table phone;
+
+        # create table person(ID int not null auto_increment, FIRSTNAME VARCHAR(20), LASTNAME varchar(20) , GENDER varchar(20), primary key (ID)
+        #                    ,foreign key (ID) references address(ID) , address varchar(200));
+        # alter table person add foreign key (address) references ADDRESS(ID);
+
+
+        select * from ADDRESS;
+        select * from PERSON;
+        select * from phone;
+
+        describe ADDRESS;
+        describe phone;
+        describe PERSON;
+
+        SELECT ad.STREET from ADDRESS as ad inner join person on ad.ID = person.address_id;
+
+        select person.address_id
+        from person inner join address on address.id = person.address_id;
+
+        select per.FIRSTNAME as 'نام' , LASTNAME as 'نام خانوادگی'
+        from person per;
+
+        select pe.FIRSTNAME , pe.LASTNAME , ad.STREET
+        from address as ad, person pe where ad.ID = pe.address_id;
+
+        select count(*)
+        from phone;
+
+
+        select count(*) from phone;
