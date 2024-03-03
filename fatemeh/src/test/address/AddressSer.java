@@ -35,7 +35,7 @@ public class AddressSer {
                 case 1:
                     try {
                         AddressEn addressEn = new AddressEn();
-                        addressEn.setId(id);
+                       // addressEn.setId(id);
                         System.out.println("enter street: ");
                         addressEn.setStreet(Input.getScanner().next());
                         System.out.println("enter zip code: ");

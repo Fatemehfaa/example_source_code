@@ -30,10 +30,10 @@ public class AddressDao  {
 
     public static void insert(AddressEn addressEn) throws Exception{
 
-        preparedStatement =Repository.getConnection().prepareStatement("insert into address (id , street , zipcode) values (? ,? ,?)");
-        preparedStatement.setInt(1 ,addressEn.getId());
-        preparedStatement.setString(2,addressEn.getStreet());
-        preparedStatement.setInt(3 ,addressEn.getZipCode());
+        preparedStatement =Repository.getConnection().prepareStatement("insert into address ( street , zipcode) values (? ,?)");
+       // preparedStatement.setInt(1 ,addressEn.getId());
+        preparedStatement.setString(1,addressEn.getStreet());
+        preparedStatement.setInt(2 ,addressEn.getZipCode());
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();

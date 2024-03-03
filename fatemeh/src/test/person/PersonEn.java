@@ -4,7 +4,7 @@ import test.address.AddressEn;
 
 import java.util.ArrayList;
 
-public class PersonEn extends ArrayList<PersonDao> {
+public class PersonEn {
 
     private int id;
 

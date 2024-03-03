@@ -28,14 +28,14 @@ public class PhoneDao {
 
 
     public static void insert(PhoneEn phoneEn) throws Exception {
-        preparedStatement = Repository.getConnection().prepareStatement("insert into phone (id , phoneNumber,phoneType,person_id) values (? ,?, ?,?)");
-        preparedStatement.setInt(1, phoneEn.getId());
+        preparedStatement = Repository.getConnection().prepareStatement("insert into phone (phoneNumber,phoneType,person_id) values (?, ?,?)");
+        //preparedStatement.setInt(1, phoneEn.getId());
 
-        preparedStatement.setString(2, phoneEn.getPhoneNumber());
+        preparedStatement.setString(1, phoneEn.getPhoneNumber());
 
-        preparedStatement.setString(3, phoneEn.getPhoneType().name());
+        preparedStatement.setString(2, phoneEn.getPhoneType().name());
 
-        preparedStatement.setInt(4, phoneEn.getPersonEn().getId());
+        preparedStatement.setInt(3, phoneEn.getPersonEn().getId());
         preparedStatement.executeUpdate();
         /*preparedStatement.close();
         connection.close();*/
@@ -63,13 +63,13 @@ public class PhoneDao {
         connection.close();*/
     }
 
-    public static Integer getCountIdPhone() throws SQLException {
-        String query = "select count(*) from phone";
-        PreparedStatement preparedStatement1 = Repository.getConnection().prepareStatement(query);
-        ResultSet resultSet = preparedStatement1.executeQuery();
-        resultSet.next();
-        return resultSet.getInt(1);
-    }
+//    public static Integer getCountIdPhone() throws SQLException {
+//        String query = "select count(*) from phone";
+//        PreparedStatement preparedStatement1 = Repository.getConnection().prepareStatement(query);
+//        ResultSet resultSet = preparedStatement1.executeQuery();
+//        resultSet.next();
+//        return resultSet.getInt(1);
+//    }
 
 }
 

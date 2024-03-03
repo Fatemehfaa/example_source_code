@@ -14,12 +14,10 @@ public class PhoneSer {
     public PhoneSer() {
     }
 
-    public static ArrayList<PhoneEn>  getPhone(){
+    private static ArrayList<PhoneEn>  getPhone(){
         ArrayList<PhoneEn> phoneEnArrayList= new ArrayList<>();
         try{
-            PhoneDao phoneDao = new PhoneDao();
-            phoneEnArrayList = phoneDao.select();
-
+            phoneEnArrayList=PhoneDao.select();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -37,7 +35,7 @@ public class PhoneSer {
                     try{
                         PhoneEn phone = new PhoneEn();
 
-                        phone.setId(PhoneDao.getCountIdPhone()+1);
+//                        phone.setId(PhoneDao.getCountIdPhone()+1);
                         System.out.println("enter phone number (pattern : 09********* )");
                         String phoneNumber = Input.getScanner().next();
 
@@ -90,13 +88,7 @@ public class PhoneSer {
                     break;
                 case 4 :
                     try{
-                        PhoneSer phoneSer = new PhoneSer();
-                        ArrayList<PhoneEn> phoneEnArrayList = phoneSer.getPhone();
-                        for(PhoneEn phoneEn:phoneEnArrayList){
-                            System.out.println(phoneEn.getId());
-                            System.out.println(phoneEn.getPhoneNumber());
-                            //System.out.println(phoneEn.getPhoneType());
-                        }
+                        System.out.println(getPhone());
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }

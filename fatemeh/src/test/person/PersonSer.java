@@ -13,11 +13,10 @@ public class PersonSer  {
     public PersonSer() {
     }
 
-    public static ArrayList<PersonEn> getPerson(){
+    private static ArrayList<PersonEn> getPerson(){
         ArrayList<PersonEn>personEnArrayList = new ArrayList<>();
         try {
-            PersonDao personDao1 = new PersonDao();
-            personEnArrayList = personDao1.select();
+            personEnArrayList = PersonDao.select();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -56,21 +55,14 @@ public class PersonSer  {
                     break;
                 case 4:
                     try {
-                        PersonSer personSer = new PersonSer();
-                        ArrayList<PersonEn> personEnArrayList=personSer.getPerson();
-                        for(PersonEn personEn:personEnArrayList){
-                            System.out.println(personEn.getId());
-                            System.out.println(personEn.getFirstname());
-                            System.out.println(personEn.getLastname());
-                            System.out.println(personEn.getAddress());
-                        }
+                        System.out.println(getPerson());
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }
 
                     break;
                 case 5:
-                    t = true;
+                    t = false;
                     break;
 
                     }

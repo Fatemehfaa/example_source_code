@@ -24,16 +24,16 @@ public class PersonDao {
     }
 
     public static void insert(int id) throws Exception {
-        preparedStatement = Repository.getConnection().prepareStatement("insert into person (id , firstname , lastname ,gender , address_id) values (? ,? ,? ,?, ?) ");
-        preparedStatement.setInt(1, id);
+        preparedStatement = Repository.getConnection().prepareStatement("insert into person ( firstname , lastname ,gender , address_id) values (? ,? ,?, ?) ");
+       // preparedStatement.setInt(1, id);
         System.out.println("enter first name: ");
-        preparedStatement.setString(2, Input.getScanner().next());
+        preparedStatement.setString(1, Input.getScanner().next());
         System.out.println("enter last name: ");
-        preparedStatement.setString(3, Input.getScanner().next());
+        preparedStatement.setString(2, Input.getScanner().next());
         System.out.println("enter gender (MEN / WOMEN):");
-        preparedStatement.setString(4, Input.getScanner().next());
+        preparedStatement.setString(3, Input.getScanner().next());
         System.out.println("enter address ID: ");
-        preparedStatement.setInt(5, Input.getScanner().nextInt());
+        preparedStatement.setInt(4, Input.getScanner().nextInt());
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();
