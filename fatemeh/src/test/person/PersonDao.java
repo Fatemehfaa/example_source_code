@@ -1,6 +1,8 @@
 package test.person;
 
 import test.Repository;
+import test.address.AddressDao;
+import test.address.AddressEn;
 import test.input.Input;
 
 import java.sql.PreparedStatement;
@@ -12,28 +14,24 @@ public class PersonDao {
     }
 
     private static PreparedStatement preparedStatement;
-    private static PersonEn personEn;
-    private static ArrayList<PersonEn> personEn1;
 
-    public static PersonEn getInstance() {
-        if (personEn == null) {
-            personEn = new PersonEn();
-            return personEn;
-        }
-        return personEn;
-    }
-
-    public static void insert(int id) throws Exception {
+    public static void insert(PersonEn personEn) throws Exception {
         preparedStatement = Repository.getConnection().prepareStatement("insert into person ( firstname , lastname ,gender , address_id) values (? ,? ,?, ?) ");
        // preparedStatement.setInt(1, id);
-        System.out.println("enter first name: ");
+
+        preparedStatement.setString(1,personEn.getFirstname());
+        preparedStatement.setString(2,personEn.getLastname());
+        preparedStatement.setString(3,personEn.getGender().name());
+        preparedStatement.setInt(4,personEn.getAddress().getId());
+
+     /*   System.out.println("enter first name: ");
         preparedStatement.setString(1, Input.getScanner().next());
         System.out.println("enter last name: ");
         preparedStatement.setString(2, Input.getScanner().next());
         System.out.println("enter gender (MEN / WOMEN):");
         preparedStatement.setString(3, Input.getScanner().next());
         System.out.println("enter address ID: ");
-        preparedStatement.setInt(4, Input.getScanner().nextInt());
+        preparedStatement.setInt(4, Input.getScanner().nextInt());*/
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();
@@ -42,14 +40,11 @@ public class PersonDao {
     }
 
 
-    public static void update() throws Exception {
-        preparedStatement = Repository.getConnection().prepareStatement("update person set (firstname = ? ,lastname = ? )  where id = ?");
-        System.out.println("update first name: ");
-        preparedStatement.setString(1, Input.getScanner().next());
-        System.out.println("update last name: ");
-        preparedStatement.setString(2, Input.getScanner().next());
-        System.out.println("id: ");
-        preparedStatement.setLong(4, Input.getScanner().nextInt());
+    public static void update(PersonEn personEn) throws Exception {
+        preparedStatement = Repository.getConnection().prepareStatement("update person set firstname = ? ,lastname = ? where id = ?");
+        preparedStatement.setString(1,personEn.getFirstname());
+        preparedStatement.setString(2, personEn.getLastname());
+        preparedStatement.setInt(3, personEn.getId());
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();
@@ -59,7 +54,7 @@ public class PersonDao {
 
     public static void delete(int id) throws Exception {
         preparedStatement = Repository.getConnection().prepareStatement("delete from person where id = ?");
-        preparedStatement.setInt(1, Input.getScanner().nextInt());
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
         //connection.close();
         preparedStatement.close();
@@ -77,6 +72,16 @@ public class PersonDao {
             personEn1.setId(resultSet.getInt("id"));
             personEn1.setFirstname(resultSet.getString("Firstname"));
             personEn1.setLastname(resultSet.getString("Lastname"));
+            personEn1.setGender(resultSet.getString("gender"));
+//            // lazy load
+//            AddressEn addressEn = new AddressEn();
+//            addressEn.setId(resultSet.getInt("address_id"));
+//            personEn1.setAddress(addressEn);
+
+            // eager load
+            AddressEn address = AddressDao.getByIdAddress(resultSet.getInt("address_id"));
+            personEn1.setAddress(address);
+
             personEns.add(personEn1);
         }
         return personEns;
@@ -85,12 +90,11 @@ public class PersonDao {
 
 
     public static PersonEn getByIdPerson(int id) {
-        String query = "select * from Person where id =?";
         try {
-            PreparedStatement preparedStatement1 = Repository.getConnection().prepareStatement(query);
-            preparedStatement1.setInt(1, id);
+            preparedStatement = Repository.getConnection().prepareStatement("select * from Person where id =?");
+            preparedStatement.setInt(1, id);
 
-            ResultSet resultSet = preparedStatement1.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             resultSet.next();
 
@@ -99,9 +103,7 @@ public class PersonDao {
             personEn1.setFirstname(resultSet.getString("firstname"));
             personEn1.setLastname(resultSet.getString("lastname"));
             personEn1.setGender(resultSet.getString("gender"));
-//            personEn1.getAddress().setId(resultSet.getInt("address_id"));
             return personEn1;
-
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             throw new RuntimeException("person by id " + id + " not found ...");

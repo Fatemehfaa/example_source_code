@@ -34,8 +34,6 @@ public class PhoneSer {
                 case 1 :
                     try{
                         PhoneEn phone = new PhoneEn();
-
-//                        phone.setId(PhoneDao.getCountIdPhone()+1);
                         System.out.println("enter phone number (pattern : 09********* )");
                         String phoneNumber = Input.getScanner().next();
 
@@ -58,6 +56,7 @@ public class PhoneSer {
                             String[] split = phoneNumber.split("");
                             if (length == 11  && split[0].equals("0") && split[1].equals("9"))
                                 phone.setPhoneNumber(phoneNumber);
+
                             else
                                 throw new RuntimeException("phone number is not valid .... ");
                         }
@@ -73,11 +72,15 @@ public class PhoneSer {
                     break;
                 case 2:
                     try{
-                        PhoneDao.update();
+                        PhoneEn phoneEn = new PhoneEn();
+                        System.out.println("update id");
+                        phoneEn = PhoneDao.getPhoneByID(Input.getScanner().nextInt());
+                        System.out.println("change phone number");
+                        phoneEn.setPhoneNumber(Input.getScanner().next());
+                        PhoneDao.update(phoneEn);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }
-
                     break;
                 case 3:
                     try{

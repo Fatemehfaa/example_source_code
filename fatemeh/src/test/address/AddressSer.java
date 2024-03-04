@@ -48,7 +48,14 @@ public class AddressSer {
                     break;
                 case 2:
                     try {
-                        AddressDao.update();
+                        AddressEn addressEn = new AddressEn();
+                        System.out.println("update id");
+                        addressEn = AddressDao.getByIdAddress(Input.getScanner().nextInt());
+                        System.out.println("change street:");
+                        addressEn.setStreet(Input.getScanner().next());
+                        System.out.println("change zipcode:");
+                        addressEn.setZipCode(Input.getScanner().nextInt());
+                        AddressDao.update(addressEn);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }
@@ -67,7 +74,13 @@ public class AddressSer {
                     }*/
                     break;
                 case 4:
-                    try {
+                    try{
+                        System.out.println(getAddress());
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+
+                   /* try {
                         AddressSer addressSer = new AddressSer();
                         ArrayList<AddressEn> addressEnArrayList = addressSer.getAddress();
                         for (AddressEn addressEn1 : addressEnArrayList) {
@@ -77,7 +90,7 @@ public class AddressSer {
                         }
                     }catch(Exception e){
                         System.out.println(e.getMessage());
-                    }
+                    }*/
                     break;
                 case 5:
                     t = false;

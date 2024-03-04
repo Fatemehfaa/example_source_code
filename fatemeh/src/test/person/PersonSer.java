@@ -7,56 +7,76 @@ import test.input.Input;
 
 import java.util.ArrayList;
 
-public class PersonSer  {
-    private static int id=1;
+public class PersonSer {
 
     public PersonSer() {
     }
 
-    private static ArrayList<PersonEn> getPerson(){
-        ArrayList<PersonEn>personEnArrayList = new ArrayList<>();
+    private static ArrayList<PersonEn> getPerson() {
+        ArrayList<PersonEn> personEnArrayList = new ArrayList<>();
         try {
             personEnArrayList = PersonDao.select();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         return personEnArrayList;
     }
 
-    public static void menuPerson(){
+    public static void menuPerson() {
         boolean t = true;
-        while (t){
+        while (t) {
             System.out.println("1.add Person \t 2.update Person \t  3.delete Person \t 4.show All Person \t 5.back");
             System.out.println("enter one number :");
             int select1 = Input.getScanner().nextInt();
-            switch (select1){
+            switch (select1) {
                 case 1:
+                    PersonEn person = new PersonEn();
                     try {
-                        PersonDao.insert(id);
-                    }catch (Exception e){
+                        System.out.println("enter firstname");
+                        person.setFirstname(Input.getScanner().next());
+                        System.out.println("enter lastname");
+                        person.setLastname(Input.getScanner().next());
+                        System.out.println("enter gander");
+                        person.setGender(Input.getScanner().next());
+                        System.out.println("enter id address");
+                        AddressEn addressEn = AddressDao.getByIdAddress(Input.getScanner().nextInt());
+                        person.setAddress(addressEn);
+                        PersonDao.insert(person);
+
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
-                    id++;
+
                     break;
                 case 2:
                     try {
-                        PersonDao.update();
-                    }catch (Exception e){
+                        PersonEn personEn = new PersonEn();
+
+                        System.out.println("update id ");
+                        personEn = PersonDao.getByIdPerson(Input.getScanner().nextInt());
+
+                        System.out.println("update firstname ");
+                        personEn.setFirstname(Input.getScanner().next());
+                        System.out.println("update lastname:");
+                        personEn.setLastname(Input.getScanner().next());
+                        PersonDao.update(personEn);
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
-                     break;
+                    break;
                 case 3:
-                    try{
-                        PersonDao.delete(id);
-                    }catch (Exception e){
+                    try {
+                        System.out.println("enter id for delete : ");
+                        PersonDao.delete(Input.getScanner().nextInt());
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case 4:
                     try {
                         System.out.println(getPerson());
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
 
@@ -65,8 +85,8 @@ public class PersonSer  {
                     t = false;
                     break;
 
-                    }
             }
         }
     }
+}
 

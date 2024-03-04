@@ -40,7 +40,7 @@ public final class Repository {
       static {
         final String url = "jdbc:mysql://localhost:3306/practice";
         final String userName = "root";
-        final String password = "2104";
+        final String password = "123456";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, userName, password);

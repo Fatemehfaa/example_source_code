@@ -2,6 +2,7 @@ package test.address;
 
 import test.Repository;
 import test.input.Input;
+import test.person.PersonEn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,14 +40,11 @@ public class AddressDao  {
         preparedStatement.close();
     }
 
-    public static void update() throws Exception{
+    public static void update(AddressEn addressEn) throws Exception{
         preparedStatement = Repository.getConnection().prepareStatement("update address set street = ?, zipcode=?  where id = ?");
-        System.out.println("update street :");
-        preparedStatement.setString( 1 , Input.getScanner().next());
-        System.out.println("update zip code: ");
-        preparedStatement.setInt(2,Input.getScanner().nextInt());
-        System.out.println("update id: ");
-        preparedStatement.setInt(3, Input.getScanner().nextInt());
+        preparedStatement.setString( 1 ,addressEn.getStreet());
+        preparedStatement.setInt(2,addressEn.getZipCode());
+        preparedStatement.setInt(3, addressEn.getId());
         preparedStatement.executeUpdate();
     /*    connection.close();
         preparedStatement.close();*/
@@ -55,7 +53,7 @@ public class AddressDao  {
     public static void delete(Integer id) throws Exception{
         preparedStatement = Repository.getConnection().prepareStatement("delete from address where id =?");
         System.out.println("id delete ");
-        preparedStatement.setInt(1 ,Input.getScanner().nextInt());
+        preparedStatement.setInt(1 ,id);
         preparedStatement.executeUpdate();
         preparedStatement.close();
         //connection.close();
@@ -88,6 +86,28 @@ public class AddressDao  {
             address.add(addressEn);
         }
         return address;
+    }
+
+
+    public static AddressEn getByIdAddress(int id) {
+        try {
+          preparedStatement= Repository.getConnection().prepareStatement("select * from address where id =?");
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+
+            AddressEn addressEn1 = new AddressEn();
+            addressEn1.setId(resultSet.getInt("id"));
+            addressEn1.setStreet(resultSet.getString("street"));
+            addressEn1.setZipCode(resultSet.getInt("zipCode"));
+            return addressEn1;
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            throw new RuntimeException("address not found ...");
+        }
     }
 
 
