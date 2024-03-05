@@ -4,8 +4,11 @@ import test.Repository;
 import test.address.AddressDao;
 import test.address.AddressEn;
 import test.input.Input;
+import test.phone.PhoneDao;
+import test.phone.PhoneEn;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PersonSer {
 
@@ -68,7 +71,16 @@ public class PersonSer {
                 case 3:
                     try {
                         System.out.println("enter id for delete : ");
-                        PersonDao.delete(Input.getScanner().nextInt());
+                        int id = Input.getScanner().nextInt();
+                        List<PhoneEn> listPhone = PhoneDao.getAllPhoneByIdPerson(id);
+                        if (listPhone!=null){
+                            for (PhoneEn phone:listPhone) {
+                                PhoneDao.delete(phone.getId());
+                            }
+                            PersonDao.delete(id);
+                        }
+                        else
+                            PersonDao.delete(id);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }

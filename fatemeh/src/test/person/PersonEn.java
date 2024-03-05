@@ -69,13 +69,17 @@ public class PersonEn {
 
     @Override
     public String toString() {
-        return "PersonEn{" +
+        String toString = "PersonEn{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", gender=" + gender +
-                ", address=" + address +
-                '}';
+                ", gender=" + gender;
+        if (address==null)
+            toString+=" } \n";
+        else
+            toString += ", address=" + address + '}' +'\n';
+
+        return toString ;
     }
 
     public void setAddress(String address) {

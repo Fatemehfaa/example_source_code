@@ -1,16 +1,12 @@
 package test.address;
 
 import test.Repository;
-import test.input.Input;
-import test.person.PersonEn;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class AddressDao  {
     private static PreparedStatement preparedStatement;
@@ -50,27 +46,14 @@ public class AddressDao  {
         preparedStatement.close();*/
     }
 
-    public static void delete(Integer id) throws Exception{
+    public static void delete(int id) throws Exception{
         preparedStatement = Repository.getConnection().prepareStatement("delete from address where id =?");
-        System.out.println("id delete ");
         preparedStatement.setInt(1 ,id);
         preparedStatement.executeUpdate();
-        preparedStatement.close();
+        //preparedStatement.close();
         //connection.close();
     }
 
-/*    public static void count(int id) throws Exception{
-        preparedStatement = Repository.getConnection().prepareStatement("select count(*) from address where id =id");
-        try {
-            AddressSer addressSer = new AddressSer();
-            ArrayList<AddressEn> addressEnArrayList = addressSer.getAddress();
-            for (AddressEn address : addressEnArrayList) {
-                System.out.println(address.getId());
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }*/
 
     public  ArrayList<AddressEn> select() throws Exception{
         preparedStatement =Repository.getConnection().prepareStatement("select * from address");

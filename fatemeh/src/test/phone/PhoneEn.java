@@ -8,7 +8,7 @@ public class PhoneEn {
     private String phoneNumber;
     private PhoneType phoneType;
 
-    private PersonEn personEn;
+    private PersonEn person;
 
     public int getId() {
         return id;
@@ -28,18 +28,6 @@ public class PhoneEn {
         this.id = id;
         return this;
     }
-
-    public PersonEn getPersonEn() {
-        return personEn;
-    }
-
-    public PhoneEn setPersonEn(PersonEn personEn) {
-        this.personEn = personEn;
-        return this;
-    }
-
-    private PersonEn person;
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -57,7 +45,6 @@ public class PhoneEn {
         else if (phoneType.equalsIgnoreCase("phone"))
             this.phoneType=PhoneType.PHONE;
     }
-
     public PersonEn getPerson() {
         return person;
     }

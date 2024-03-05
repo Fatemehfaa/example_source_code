@@ -1,14 +1,14 @@
 package test.phone;
 
 import test.Repository;
-import test.address.AddressDao;
-import test.address.AddressEn;
-import test.input.Input;
+
+import test.person.PersonDao;
+import test.person.PersonEn;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhoneDao {
 
@@ -24,8 +24,9 @@ public class PhoneDao {
             phoneEn1.setId(resultSet.getInt("id"));
             phoneEn1.setPhoneNumber(resultSet.getString("phoneNumber"));
             phoneEn1.setPhoneType(resultSet.getString("phoneType"));
-            //phoneEn1.setPerson(resultSet.getInt("person_id"));
 
+            PersonEn personEn = PersonDao.getByIdPerson(resultSet.getInt("person_id"));
+            phoneEn1.setPerson(personEn);
             phoneEns.add(phoneEn1);
         }
         return phoneEns;
@@ -34,12 +35,9 @@ public class PhoneDao {
 
     public static void insert(PhoneEn phoneEn) throws Exception {
         preparedStatement = Repository.getConnection().prepareStatement("insert into phone (phoneNumber,phoneType,person_id) values (?, ?,?)");
-        //preparedStatement.setInt(1, phoneEn.getId());
-
         preparedStatement.setString(1, phoneEn.getPhoneNumber());
-
         preparedStatement.setString(2, phoneEn.getPhoneType().name());
-        preparedStatement.setInt(3, phoneEn.getPersonEn().getId());
+        preparedStatement.setInt(3, phoneEn.getPerson().getId());
         preparedStatement.executeUpdate();
         /*preparedStatement.close();
         connection.close();*/
@@ -84,6 +82,28 @@ public class PhoneDao {
         }
     }
 
+    public static List<PhoneEn> getAllPhoneByIdPerson(int idPerson){
+        String query = "select * from phone where person_id = ?";
+        List<PhoneEn> listPhoneByIdPerson = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement1 = Repository.getConnection().prepareStatement(query);
+            preparedStatement1.setInt(1,idPerson);
+            ResultSet resultSet = preparedStatement1.executeQuery();
+            while (resultSet.next()){
+                PhoneEn phone = new PhoneEn();
+                phone.setId(resultSet.getInt("id"));
+                phone.setPhoneNumber(resultSet.getString("phoneNumber"));
+                phone.setPhoneType(resultSet.getString("phoneType"));
+                PersonEn person = PersonDao.getByIdPerson(resultSet.getInt("person_id"));
+                phone.setPerson(person);
+                listPhoneByIdPerson.add(phone);
+            }
+            return listPhoneByIdPerson;
+        }catch (Exception ex){
+            System.out.println("by id person not found ... ");
+        }
+        return null;
+    }
 
 
 }

@@ -57,7 +57,7 @@ public class PersonDao {
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
         //connection.close();
-        preparedStatement.close();
+        //preparedStatement.close();
 
     }
 

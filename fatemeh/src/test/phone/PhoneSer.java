@@ -1,6 +1,5 @@
 package test.phone;
 
-import test.Repository;
 import test.input.Input;
 import test.person.PersonDao;
 import test.person.PersonEn;
@@ -63,7 +62,7 @@ public class PhoneSer {
 
                         System.out.println("enter person id: ");
                         PersonEn person = PersonDao.getByIdPerson(Input.getScanner().nextInt());
-                        phone.setPersonEn(person);
+                        phone.setPerson(person);
 
                         PhoneDao.insert(phone);
                     }catch (Exception e){
@@ -84,7 +83,8 @@ public class PhoneSer {
                     break;
                 case 3:
                     try{
-                        PhoneDao.delete(id);
+                        System.out.println("id delete:");
+                        PhoneDao.delete(Input.getScanner().nextInt());
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }

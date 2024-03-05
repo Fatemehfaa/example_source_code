@@ -1,6 +1,4 @@
 package test.address;
-
-import test.Repository;
 import test.input.Input;
 
 import java.util.ArrayList;
@@ -8,7 +6,7 @@ import java.util.ArrayList;
 public class AddressSer {
     private static int id = 1;
 
-    public AddressSer() throws Exception {
+    public AddressSer() {
     }
 
     public static ArrayList<AddressEn> getAddress() {
@@ -48,9 +46,8 @@ public class AddressSer {
                     break;
                 case 2:
                     try {
-                        AddressEn addressEn = new AddressEn();
                         System.out.println("update id");
-                        addressEn = AddressDao.getByIdAddress(Input.getScanner().nextInt());
+                        AddressEn addressEn = AddressDao.getByIdAddress(Input.getScanner().nextInt());
                         System.out.println("change street:");
                         addressEn.setStreet(Input.getScanner().next());
                         System.out.println("change zipcode:");
@@ -61,11 +58,12 @@ public class AddressSer {
                     }
                     break;
                 case 3:
-                    try{
-                        AddressDao.delete(id);
-                    }catch (Exception e){
-                        System.out.println(e.getMessage());
-                    }
+                   try{
+                       System.out.println("id delete");
+                       AddressDao.delete(Input.getScanner().nextInt());
+                   }catch (Exception e){
+                       System.out.println(e.getMessage());
+                   }
                     /*System.out.println("enter id :");
                     int addressId = Input.getScanner().nextInt();
                     for (AddressEn addressEn : AddressDao.getListAddress()) {
